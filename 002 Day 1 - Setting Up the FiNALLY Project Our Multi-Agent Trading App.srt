@@ -1,0 +1,968 @@
+1
+00:00:00,000 --> 00:00:01,639
+Welcome back to VS Code.
+
+2
+00:00:01,639 --> 00:00:04,219
+We're going to be spending a lot of time in here this week.
+
+3
+00:00:04,219 --> 00:00:08,560
+Bring up your favorite terminal with Control backtick.
+
+4
+00:00:08,560 --> 00:00:10,119
+It's the only terminal and it won't be
+
+5
+00:00:10,119 --> 00:00:11,880
+your favorite terminal, but whatever.
+
+6
+00:00:11,880 --> 00:00:14,680
+Your terminal, bring it up and then go into
+
+7
+00:00:14,680 --> 00:00:18,479
+your home directory and into your projects directory,
+
+8
+00:00:18,479 --> 00:00:20,559
+and you're going to do a git clone of
+
+9
+00:00:20,559 --> 00:00:23,799
+just a basic scaffolding I've got in place for you.
+
+10
+00:00:23,799 --> 00:00:26,879
+Here it is. The project is called Finally.
+
+11
+00:00:26,879 --> 00:00:29,280
+Finally, because it's our final week.
+
+12
+00:00:29,319 --> 00:00:31,600
+It's when we're going multi-agent.
+
+13
+00:00:31,600 --> 00:00:35,680
+Then it's also Finally because that stands for Finance Ally.
+
+14
+00:00:35,680 --> 00:00:38,919
+We're going to build a live trader workstation
+
+15
+00:00:38,919 --> 00:00:41,560
+with cool market data and stuff happening,
+
+16
+00:00:41,560 --> 00:00:44,240
+and it's going to feel like a high-end application,
+
+17
+00:00:44,240 --> 00:00:47,400
+and we're going to do it with an army of agents.
+
+18
+00:00:47,400 --> 00:00:49,119
+We're going to do it all this week.
+
+19
+00:00:49,119 --> 00:00:50,720
+It's in this repo.
+
+20
+00:00:50,720 --> 00:00:55,520
+Finally, clone it and then open it up as a new project,
+
+21
+00:00:55,520 --> 00:00:56,840
+and I will see you there.
+
+22
+00:00:56,880 --> 00:01:00,200
+Okay, so you open it up as a project by going,
+
+23
+00:01:00,200 --> 00:01:02,520
+a project and then going into projects finally,
+
+24
+00:01:02,520 --> 00:01:04,360
+and it's showing you now,
+
+25
+00:01:04,360 --> 00:01:05,519
+and it should look something like this.
+
+26
+00:01:05,519 --> 00:01:06,800
+There might be more files in here
+
+27
+00:01:06,800 --> 00:01:08,000
+because I'm sort of figuring out
+
+28
+00:01:08,000 --> 00:01:09,879
+how much I want to give you as a starting point,
+
+29
+00:01:09,879 --> 00:01:11,680
+and we're going to work on some of this together.
+
+30
+00:01:11,680 --> 00:01:13,639
+We're going to set up a whole foundation
+
+31
+00:01:13,639 --> 00:01:15,400
+that we can then give to a bunch of agents
+
+32
+00:01:15,400 --> 00:01:17,160
+to build the whole project for us
+
+33
+00:01:17,160 --> 00:01:21,040
+in as much of a one-shot experience as we can do.
+
+34
+00:01:21,040 --> 00:01:23,680
+But let me just talk you through it, close everything down.
+
+35
+00:01:23,680 --> 00:01:25,480
+Let me show you what we've got here.
+
+36
+00:01:25,480 --> 00:01:27,879
+So in finally, your starting point
+
+37
+00:01:27,879 --> 00:01:29,639
+should look something like this.
+
+38
+00:01:29,639 --> 00:01:33,599
+There is the usual, there's an empty-ish readme.
+
+39
+00:01:33,599 --> 00:01:36,319
+There's a Claude.md that we'll go through in a second.
+
+40
+00:01:36,319 --> 00:01:39,599
+There's a bunch of directories that are empty
+
+41
+00:01:39,599 --> 00:01:42,120
+that may not even show up for you because they're empty,
+
+42
+00:01:42,120 --> 00:01:45,040
+like a backend, db, frontend,
+
+43
+00:01:45,040 --> 00:01:46,760
+these are all completely empty,
+
+44
+00:01:46,760 --> 00:01:48,519
+and there's one called planning,
+
+45
+00:01:48,519 --> 00:01:51,680
+which has a single document, plan.md,
+
+46
+00:01:51,680 --> 00:01:53,800
+and then there's also an empty test.
+
+47
+00:01:53,839 --> 00:01:56,879
+All right, there's a useful gitignore,
+
+48
+00:01:56,879 --> 00:01:59,639
+and then there's, of course, the Claude.md
+
+49
+00:01:59,639 --> 00:02:01,120
+that we will look at now.
+
+50
+00:02:01,120 --> 00:02:02,519
+And there's also a .env file
+
+51
+00:02:02,519 --> 00:02:04,800
+where I put my open router key in there,
+
+52
+00:02:04,800 --> 00:02:06,919
+just copied it from before.
+
+53
+00:02:06,919 --> 00:02:09,960
+Okay, into the Claude.md, it's very short.
+
+54
+00:02:09,960 --> 00:02:13,720
+Finally project, the finance ally, finally.
+
+55
+00:02:13,720 --> 00:02:16,559
+I'm probably not the first person to think of that,
+
+56
+00:02:16,559 --> 00:02:19,279
+but still, it works nicely for this project.
+
+57
+00:02:19,279 --> 00:02:21,639
+And it just says all project documentation
+
+58
+00:02:21,639 --> 00:02:23,759
+is in the planning directory.
+
+59
+00:02:24,559 --> 00:02:25,600
+This is that point I made
+
+60
+00:02:25,600 --> 00:02:28,639
+about one of the stabilizing forces
+
+61
+00:02:28,639 --> 00:02:31,520
+is to get all of your different coding agents
+
+62
+00:02:31,520 --> 00:02:34,720
+to be converging on shared documentation,
+
+63
+00:02:34,720 --> 00:02:37,080
+which is where they can leave information for each other
+
+64
+00:02:37,080 --> 00:02:40,039
+to keep them all communicating closely.
+
+65
+00:02:40,039 --> 00:02:44,279
+The key document is in plan.md, included in full here,
+
+66
+00:02:44,279 --> 00:02:46,960
+and then I'm using that at notation
+
+67
+00:02:46,960 --> 00:02:49,800
+as a way of ensuring that this entire document
+
+68
+00:02:49,800 --> 00:02:53,800
+is brought into context every time it has no choice.
+
+69
+00:02:53,800 --> 00:02:57,240
+So it all sort of revolves around this plan.md,
+
+70
+00:02:57,240 --> 00:02:59,199
+and this is going to be our tool
+
+71
+00:02:59,199 --> 00:03:01,960
+for how we control the build of the whole application.
+
+72
+00:03:01,960 --> 00:03:05,000
+And so this document, which I'll open in preview mode
+
+73
+00:03:05,000 --> 00:03:06,559
+so we see it nice and formatted,
+
+74
+00:03:06,559 --> 00:03:09,720
+this is going to be our business requirements.
+
+75
+00:03:09,720 --> 00:03:11,559
+That is what I want us to build.
+
+76
+00:03:11,559 --> 00:03:14,240
+And the first stage is us building this out
+
+77
+00:03:14,240 --> 00:03:16,440
+so that it feels like it's robust.
+
+78
+00:03:16,440 --> 00:03:18,600
+So the vision is that we're building
+
+79
+00:03:18,600 --> 00:03:22,639
+a stunning AI-powered trading workstation.
+
+80
+00:03:22,639 --> 00:03:25,240
+It doesn't matter if you don't know about financial services,
+
+81
+00:03:25,240 --> 00:03:26,960
+this is still going to make sense to you.
+
+82
+00:03:26,960 --> 00:03:28,839
+If you know what stocks and shares are,
+
+83
+00:03:28,839 --> 00:03:30,639
+then that's all you need.
+
+84
+00:03:30,639 --> 00:03:33,679
+It's going to stream live market data.
+
+85
+00:03:33,679 --> 00:03:37,960
+It's going to let users trade in a simulated portfolio,
+
+86
+00:03:37,960 --> 00:03:40,720
+and it's going to integrate an LLM assistant
+
+87
+00:03:40,720 --> 00:03:42,199
+that can analyze portfolios
+
+88
+00:03:42,199 --> 00:03:44,600
+and execute trades on your behalf.
+
+89
+00:03:44,600 --> 00:03:48,279
+It looks and feels like a modern Bloomberg terminal
+
+90
+00:03:48,279 --> 00:03:50,440
+with an AI co-pilot,
+
+91
+00:03:50,440 --> 00:03:52,919
+which could be a whole product in its own.
+
+92
+00:03:52,919 --> 00:03:55,639
+This could be a real, for reals product.
+
+93
+00:03:55,639 --> 00:03:57,479
+And I say in this vision
+
+94
+00:03:57,479 --> 00:03:59,960
+that it's the capstone project for the course,
+
+95
+00:03:59,960 --> 00:04:02,199
+built entirely by coding agents,
+
+96
+00:04:02,199 --> 00:04:04,679
+demonstrating how orchestrated agents
+
+97
+00:04:04,679 --> 00:04:08,759
+can produce a production-quality, full-stack application.
+
+98
+00:04:08,759 --> 00:04:12,759
+Agents interact through files in the planning directory.
+
+99
+00:04:12,759 --> 00:04:16,200
+That lays the scene out there for you
+
+100
+00:04:16,200 --> 00:04:18,238
+and also for the AI agents.
+
+101
+00:04:18,238 --> 00:04:19,399
+Okay, and I should confess
+
+102
+00:04:19,399 --> 00:04:21,320
+that I started with a paragraph like that,
+
+103
+00:04:21,320 --> 00:04:23,559
+and I just put it in, actually, in Claude,
+
+104
+00:04:23,559 --> 00:04:25,640
+in claude.ai, the chatbot,
+
+105
+00:04:25,640 --> 00:04:28,279
+and iterated a bit for most of the rest of this.
+
+106
+00:04:28,279 --> 00:04:31,839
+So most of the rest of this is just based on generated,
+
+107
+00:04:31,839 --> 00:04:34,440
+but from some question and answering with me,
+
+108
+00:04:34,440 --> 00:04:35,279
+which is a good way to do it.
+
+109
+00:04:35,279 --> 00:04:36,519
+You could also do it in Claude Code,
+
+110
+00:04:36,519 --> 00:04:39,600
+but I chose just to use the chat product.
+
+111
+00:04:39,600 --> 00:04:41,640
+So the user experience explains
+
+112
+00:04:41,640 --> 00:04:43,959
+that it's all gonna run in Docker,
+
+113
+00:04:43,959 --> 00:04:46,640
+that a browser will open to local host,
+
+114
+00:04:46,640 --> 00:04:49,160
+and that you'll be able to then do things
+
+115
+00:04:49,160 --> 00:04:52,399
+like watch prices stream, monitor the portfolio,
+
+116
+00:04:52,399 --> 00:04:54,440
+chat with an AI assistant.
+
+117
+00:04:54,440 --> 00:04:55,799
+There's a bit about the visual design
+
+118
+00:04:55,799 --> 00:04:57,720
+and the usual color scheme that I like,
+
+119
+00:04:57,720 --> 00:05:00,079
+but you should put in your own color scheme.
+
+120
+00:05:00,079 --> 00:05:02,320
+This architecture thing here was generated,
+
+121
+00:05:02,320 --> 00:05:04,320
+of course, by Claude,
+
+122
+00:05:04,320 --> 00:05:05,279
+and it's very clear
+
+123
+00:05:05,279 --> 00:05:07,480
+that there are some roots explained here.
+
+124
+00:05:07,480 --> 00:05:09,079
+We're gonna, very consistent
+
+125
+00:05:09,079 --> 00:05:12,760
+with how we've done some of the prior projects, use SQLite.
+
+126
+00:05:12,760 --> 00:05:15,920
+We're gonna have like a background task for market data.
+
+127
+00:05:15,920 --> 00:05:18,720
+Okay, and then there's some explanation as to why.
+
+128
+00:05:18,720 --> 00:05:20,720
+The directory structure is laid out there,
+
+129
+00:05:20,720 --> 00:05:23,359
+and it's consistent with what's already been set up.
+
+130
+00:05:23,359 --> 00:05:26,519
+And there's some stuff about the boundaries between areas,
+
+131
+00:05:26,519 --> 00:05:27,600
+because as you can imagine,
+
+132
+00:05:27,600 --> 00:05:30,799
+we're gonna be looking into having multiple coding agents
+
+133
+00:05:30,799 --> 00:05:32,279
+working on different parts.
+
+134
+00:05:32,279 --> 00:05:35,359
+So focusing on the boundaries is really important,
+
+135
+00:05:35,359 --> 00:05:37,920
+because agents need to know what they're responsible for
+
+136
+00:05:37,920 --> 00:05:40,239
+and how they have to interact with each other.
+
+137
+00:05:40,239 --> 00:05:42,480
+Next section explains about the environment variables,
+
+138
+00:05:42,480 --> 00:05:45,079
+that there's going to be an open-route API key,
+
+139
+00:05:45,079 --> 00:05:47,160
+which you already have.
+
+140
+00:05:47,160 --> 00:05:48,799
+And then optionally,
+
+141
+00:05:48,799 --> 00:05:50,880
+an API key to something called Massive,
+
+142
+00:05:50,880 --> 00:05:52,440
+formerly known as Polygon,
+
+143
+00:05:52,440 --> 00:05:54,920
+that I cover in some of my other courses.
+
+144
+00:05:54,920 --> 00:05:56,679
+It's optional because the idea is
+
+145
+00:05:56,679 --> 00:05:58,959
+you don't need to have real market data,
+
+146
+00:05:58,959 --> 00:06:02,320
+because this product will include a simulated market data.
+
+147
+00:06:02,320 --> 00:06:05,679
+So it can be just as cool without having to pay a cent.
+
+148
+00:06:05,679 --> 00:06:09,399
+You can see everything going on as if it's a live market.
+
+149
+00:06:09,399 --> 00:06:12,399
+And that can be a great way to build out trading agents,
+
+150
+00:06:12,399 --> 00:06:13,359
+like equity traders,
+
+151
+00:06:13,359 --> 00:06:15,559
+because you want to see how they respond to simulated data
+
+152
+00:06:15,559 --> 00:06:16,920
+as well as the real thing.
+
+153
+00:06:16,920 --> 00:06:17,760
+But you'll be able,
+
+154
+00:06:17,760 --> 00:06:21,600
+should you wish to pay for proper equity market data,
+
+155
+00:06:21,600 --> 00:06:23,959
+or even crypto or options or whatever you like,
+
+156
+00:06:23,959 --> 00:06:28,320
+you should be able to switch that in with an API key change.
+
+157
+00:06:28,320 --> 00:06:30,440
+Okay, and then that's all explained
+
+158
+00:06:30,440 --> 00:06:32,000
+in this next section on market data,
+
+159
+00:06:32,000 --> 00:06:33,920
+explaining that there's two different options
+
+160
+00:06:33,920 --> 00:06:36,720
+and explaining how we will use SSE approach,
+
+161
+00:06:36,720 --> 00:06:39,399
+the same way that information is streamed back
+
+162
+00:06:39,399 --> 00:06:40,760
+when you're working with an AI,
+
+163
+00:06:40,760 --> 00:06:43,320
+as a way of streaming back market data live
+
+164
+00:06:43,320 --> 00:06:44,559
+onto the user interface.
+
+165
+00:06:44,559 --> 00:06:46,880
+And then we're going simple with the database.
+
+166
+00:06:46,880 --> 00:06:49,640
+We're going to use SQLite as before,
+
+167
+00:06:49,640 --> 00:06:52,359
+lazily set up the first time you launch the app.
+
+168
+00:06:52,359 --> 00:06:54,399
+A little bit more sophisticated than last week
+
+169
+00:06:54,399 --> 00:06:56,760
+that it's going to persist between sessions,
+
+170
+00:06:56,760 --> 00:06:58,839
+as you can see if you read through it,
+
+171
+00:06:58,839 --> 00:07:00,480
+but still quite simplistic.
+
+172
+00:07:00,480 --> 00:07:03,559
+But it should be an easy task to upgrade this,
+
+173
+00:07:03,559 --> 00:07:06,200
+to use like a database like Superbase,
+
+174
+00:07:06,200 --> 00:07:09,720
+so it's an API based Postgres database on the cloud,
+
+175
+00:07:09,720 --> 00:07:12,040
+if you wish to, but we'll keep it simple for this,
+
+176
+00:07:12,040 --> 00:07:13,399
+because we're trying to build the app,
+
+177
+00:07:13,399 --> 00:07:16,760
+not necessarily worry about sort of third party integrations.
+
+178
+00:07:16,760 --> 00:07:19,160
+Bit more on the API endpoints,
+
+179
+00:07:19,160 --> 00:07:21,519
+and then more about the LLM integration.
+
+180
+00:07:21,519 --> 00:07:24,920
+We're going to use the same Cerebras approach
+
+181
+00:07:24,920 --> 00:07:26,679
+or open router approach,
+
+182
+00:07:26,679 --> 00:07:28,279
+because I love the way it's so fast.
+
+183
+00:07:28,279 --> 00:07:30,440
+You don't need to use Cerebras if you don't want to.
+
+184
+00:07:30,440 --> 00:07:32,079
+And we're going to use structured outputs
+
+185
+00:07:32,079 --> 00:07:33,679
+just as we did in week two.
+
+186
+00:07:33,679 --> 00:07:36,160
+So we can have an interactive conversation with an LLM
+
+187
+00:07:36,160 --> 00:07:38,839
+and allow it to do things like make trading decisions
+
+188
+00:07:38,839 --> 00:07:41,040
+and change the way that the user interface looks.
+
+189
+00:07:41,040 --> 00:07:43,519
+So that's all parts of how this is explained.
+
+190
+00:07:43,519 --> 00:07:46,160
+And you can see that I've included a dot Claude,
+
+191
+00:07:46,160 --> 00:07:48,839
+and I've just copied in the Cerebras skill
+
+192
+00:07:48,839 --> 00:07:50,440
+that we made in week two.
+
+193
+00:07:50,440 --> 00:07:52,760
+So we're just taking that same skill again.
+
+194
+00:07:52,760 --> 00:07:55,160
+So we've got the skill, it can use it right away.
+
+195
+00:07:55,160 --> 00:07:56,480
+We know how that works.
+
+196
+00:07:56,480 --> 00:07:59,600
+We know that just by putting that folder in there,
+
+197
+00:07:59,600 --> 00:08:01,559
+it's just going to have this new skill.
+
+198
+00:08:01,559 --> 00:08:03,920
+That's the crazy thing about skills
+
+199
+00:08:03,920 --> 00:08:08,000
+and stuff about how it will execute automatically.
+
+200
+00:08:08,000 --> 00:08:09,720
+This reads a little bit LLM generated,
+
+201
+00:08:09,720 --> 00:08:11,440
+but it doesn't matter, it's fine.
+
+202
+00:08:11,440 --> 00:08:15,399
+And then front-end design, how the screens will be laid out.
+
+203
+00:08:15,399 --> 00:08:17,359
+I chatted with Claude a while about this
+
+204
+00:08:17,359 --> 00:08:19,119
+to make sure that I was happy with it.
+
+205
+00:08:19,119 --> 00:08:21,640
+And then the way that it's all going to be deployed
+
+206
+00:08:21,640 --> 00:08:24,160
+super simply in one Docker container,
+
+207
+00:08:24,160 --> 00:08:25,440
+just as we did last week.
+
+208
+00:08:25,440 --> 00:08:27,279
+It's a really easy pattern.
+
+209
+00:08:27,279 --> 00:08:28,720
+LLMs love to try and put things
+
+210
+00:08:28,720 --> 00:08:30,040
+into multiple Docker containers
+
+211
+00:08:30,040 --> 00:08:32,440
+and make it more complicated than it needs to be.
+
+212
+00:08:32,440 --> 00:08:34,039
+This is where it did that to start with.
+
+213
+00:08:34,039 --> 00:08:36,119
+And I came in and said, no, that's not necessary.
+
+214
+00:08:36,119 --> 00:08:37,400
+We don't need it.
+
+215
+00:08:37,400 --> 00:08:38,760
+That's the kind of place
+
+216
+00:08:38,760 --> 00:08:40,679
+where human involvement is so important.
+
+217
+00:08:40,679 --> 00:08:42,440
+And it can be hard for people that aren't familiar
+
+218
+00:08:42,440 --> 00:08:43,919
+with these kinds of architectures.
+
+219
+00:08:43,919 --> 00:08:46,039
+And you just have to really challenge yourself
+
+220
+00:08:46,039 --> 00:08:49,520
+to ask the pointed questions of, could this be simpler?
+
+221
+00:08:49,520 --> 00:08:52,520
+Make sure that it is as simple as possible.
+
+222
+00:08:52,520 --> 00:08:55,520
+All right, and then how we will be able to start and stop.
+
+223
+00:08:55,520 --> 00:08:57,039
+And one of the great benefits
+
+224
+00:08:57,039 --> 00:08:59,359
+of having it all be in one Docker container like this
+
+225
+00:08:59,359 --> 00:09:01,479
+is also means that should you wish,
+
+226
+00:09:01,479 --> 00:09:04,039
+we can easily deploy it to the cloud.
+
+227
+00:09:04,039 --> 00:09:06,080
+We could easily just take this
+
+228
+00:09:06,080 --> 00:09:09,159
+and put it up there on a hugging face space perhaps,
+
+229
+00:09:09,159 --> 00:09:13,080
+or even deployed to AWS AppRunner or something like that.
+
+230
+00:09:13,080 --> 00:09:15,320
+Ways that we cover on my production course,
+
+231
+00:09:15,320 --> 00:09:17,919
+if you wish to go live with this afterwards.
+
+232
+00:09:17,919 --> 00:09:20,960
+And then finally, stuff about how we will test it
+
+233
+00:09:20,960 --> 00:09:23,880
+with unit tests and end-to-end tests.
+
+234
+00:09:23,880 --> 00:09:25,359
+That is the documentation.
+
+235
+00:09:25,359 --> 00:09:26,960
+That is the business requirements docs
+
+236
+00:09:26,960 --> 00:09:28,960
+slightly fleshed out with Claude.
+
+237
+00:09:29,159 --> 00:09:32,880
+And it is our starting point for the finally project,
+
+238
+00:09:32,880 --> 00:09:35,280
+a juicy, great big project,
+
+239
+00:09:35,280 --> 00:09:37,840
+which is gonna feel immensely satisfying
+
+240
+00:09:37,840 --> 00:09:39,479
+and which as much as possible,
+
+241
+00:09:39,479 --> 00:09:42,400
+we're gonna try and run it using multiple agents
+
+242
+00:09:42,400 --> 00:09:44,359
+in controlled chaos.
+

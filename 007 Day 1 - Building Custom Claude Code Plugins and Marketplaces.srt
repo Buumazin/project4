@@ -1,0 +1,1384 @@
+1
+00:00:00,000 --> 00:00:01,240
+And last but not least,
+
+2
+00:00:01,240 --> 00:00:04,599
+we're going to cover creating your own plugin.
+
+3
+00:00:04,599 --> 00:00:06,039
+Not a common thing to want to do,
+
+4
+00:00:06,039 --> 00:00:08,840
+but good to know that you can, good to have seen it.
+
+5
+00:00:08,840 --> 00:00:10,720
+If you work in a larger team,
+
+6
+00:00:10,720 --> 00:00:13,520
+it can be super convenient to have a few plugins
+
+7
+00:00:13,520 --> 00:00:16,280
+that you've created for your team to work with,
+
+8
+00:00:16,280 --> 00:00:17,879
+in which case you'd be able to create them all.
+
+9
+00:00:17,879 --> 00:00:20,139
+You could even make your own marketplace
+
+10
+00:00:20,139 --> 00:00:21,799
+to be used inside your company,
+
+11
+00:00:21,799 --> 00:00:23,479
+and then others with Cloud Code
+
+12
+00:00:23,479 --> 00:00:26,680
+can add that marketplace to their marketplaces,
+
+13
+00:00:26,680 --> 00:00:28,840
+and then you can just pick and choose
+
+14
+00:00:28,879 --> 00:00:30,520
+from the plugins that are available.
+
+15
+00:00:30,520 --> 00:00:33,240
+It's a pro feature, it's nice to know you've got it.
+
+16
+00:00:33,240 --> 00:00:35,159
+Let's make a plugin right now.
+
+17
+00:00:35,159 --> 00:00:36,560
+Okay, and I'm going to make a,
+
+18
+00:00:36,560 --> 00:00:39,520
+I'm going to call it Independent Reviewer,
+
+19
+00:00:39,520 --> 00:00:41,159
+because it's going to, we're going to use Codex,
+
+20
+00:00:41,159 --> 00:00:42,840
+maybe you'll do it some other way,
+
+21
+00:00:42,840 --> 00:00:43,680
+but it's going to be something
+
+22
+00:00:43,680 --> 00:00:45,959
+that can do an independent review of changes.
+
+23
+00:00:45,959 --> 00:00:47,319
+And you start with a new folder,
+
+24
+00:00:47,319 --> 00:00:49,900
+just a node.cloud, just a new folder.
+
+25
+00:00:49,900 --> 00:00:51,740
+It could be in a different repo altogether,
+
+26
+00:00:51,740 --> 00:00:54,000
+in your own marketplace repo.
+
+27
+00:00:54,000 --> 00:00:55,680
+I'm going to have it right here,
+
+28
+00:00:55,680 --> 00:00:58,200
+and I'm going to call it Independent,
+
+29
+00:00:58,200 --> 00:01:02,279
+and spell it right, Independent Reviewer. Like so.
+
+30
+00:01:02,279 --> 00:01:05,239
+That is our new folder, which is where it all begins.
+
+31
+00:01:05,239 --> 00:01:08,360
+And within this, you then make a new subfolder,
+
+32
+00:01:08,360 --> 00:01:11,279
+a new subdirectory inside here,
+
+33
+00:01:11,279 --> 00:01:15,720
+which has a special name of .cloud-plugin.
+
+34
+00:01:15,720 --> 00:01:19,319
+That is the sort of the fixed name you have to have
+
+35
+00:01:19,319 --> 00:01:22,440
+for the directory, which contains some important config.
+
+36
+00:01:22,440 --> 00:01:25,220
+And in particular, we're going to make a file in here
+
+37
+00:01:25,220 --> 00:01:28,419
+that's going to be called plugin.json,
+
+38
+00:01:28,419 --> 00:01:30,699
+which is the sort of the manifest,
+
+39
+00:01:30,699 --> 00:01:33,860
+the description of what it is that we're doing here.
+
+40
+00:01:33,860 --> 00:01:35,900
+And you just have to know it has to be called that,
+
+41
+00:01:35,900 --> 00:01:37,919
+and it's, of course, in the documentation,
+
+42
+00:01:37,919 --> 00:01:40,739
+very clearly explained, that's what it has to look like,
+
+43
+00:01:40,739 --> 00:01:42,220
+and it has a particular format,
+
+44
+00:01:42,220 --> 00:01:43,779
+and which is the format that we will follow.
+
+45
+00:01:43,779 --> 00:01:45,779
+Okay, and this is the structure of it.
+
+46
+00:01:45,779 --> 00:01:48,500
+It is a JSON dictionary with a name,
+
+47
+00:01:48,500 --> 00:01:52,099
+which is Independent Reviewer, in our case, a description,
+
+48
+00:01:52,099 --> 00:01:53,540
+which is to carry out an independent review
+
+49
+00:01:53,540 --> 00:01:54,959
+of all changes since last commit,
+
+50
+00:01:55,699 --> 00:01:58,879
+and a version number, and that is our plugin.json file.
+
+51
+00:01:58,879 --> 00:02:00,839
+All right, one more thing left to do.
+
+52
+00:02:00,839 --> 00:02:04,160
+This top-level Independent Reviewer directory
+
+53
+00:02:04,160 --> 00:02:08,080
+can have four subdirectories that contain information
+
+54
+00:02:08,080 --> 00:02:10,000
+pertaining to this plugin,
+
+55
+00:02:10,000 --> 00:02:11,720
+and they are, predictably enough,
+
+56
+00:02:11,720 --> 00:02:14,119
+commands that can have slash commands,
+
+57
+00:02:14,119 --> 00:02:16,559
+then skills that can have skills,
+
+58
+00:02:16,559 --> 00:02:19,600
+and, of course, agents that can have subagents,
+
+59
+00:02:19,600 --> 00:02:21,860
+and guess what else? Yes, hooks.
+
+60
+00:02:21,860 --> 00:02:23,660
+So that's what we're going to create right now,
+
+61
+00:02:23,660 --> 00:02:25,619
+create a folder called hooks,
+
+62
+00:02:25,619 --> 00:02:27,300
+and this is where you can put hooks
+
+63
+00:02:27,300 --> 00:02:29,300
+associated with the plugin,
+
+64
+00:02:29,300 --> 00:02:31,100
+and within this hooks directory,
+
+65
+00:02:31,100 --> 00:02:34,220
+you just need a new file that is called hooks.json.
+
+66
+00:02:34,220 --> 00:02:35,740
+It's as simple as that.
+
+67
+00:02:35,740 --> 00:02:37,259
+Let's actually try that again.
+
+68
+00:02:37,259 --> 00:02:40,940
+Let's try that again, new file, hooks.json,
+
+69
+00:02:40,940 --> 00:02:43,660
+and now all I do is I go to this settings.json.
+
+70
+00:02:43,660 --> 00:02:44,979
+It's this exact JSON.
+
+71
+00:02:44,979 --> 00:02:46,460
+I'm going to cut it from there.
+
+72
+00:02:46,460 --> 00:02:48,220
+We don't want it in both places.
+
+73
+00:02:48,220 --> 00:02:49,039
+I've saved that.
+
+74
+00:02:49,039 --> 00:02:51,520
+I'm going to hooks.json, pasting it there.
+
+75
+00:02:51,520 --> 00:02:55,759
+That is putting that hook in hooks.json right there,
+
+76
+00:02:55,759 --> 00:03:01,660
+and so now we have our Claude plugin and our hooks. That's set.
+
+77
+00:03:01,660 --> 00:03:04,080
+So now we've got our independent reviewer plugin,
+
+78
+00:03:04,080 --> 00:03:06,119
+and we want to attach that to Claude code,
+
+79
+00:03:06,119 --> 00:03:07,839
+and there is a way to launch Claude
+
+80
+00:03:07,839 --> 00:03:10,160
+and tell it to use this plugin,
+
+81
+00:03:10,160 --> 00:03:12,199
+but you can only do that for one plugin at a time,
+
+82
+00:03:12,199 --> 00:03:13,839
+and it's not a very flexible way of doing it.
+
+83
+00:03:13,839 --> 00:03:16,520
+The proper way is to create a marketplace.
+
+84
+00:03:16,520 --> 00:03:19,559
+You can create a little marketplace just for yourself,
+
+85
+00:03:19,559 --> 00:03:20,960
+but then once you've pushed it to Git,
+
+86
+00:03:21,399 --> 00:03:23,279
+the rest of your team could use it as well.
+
+87
+00:03:23,279 --> 00:03:24,440
+Let me show you how you do it.
+
+88
+00:03:24,440 --> 00:03:26,960
+You create another folder,
+
+89
+00:03:26,960 --> 00:03:30,240
+which is a top-level folder for this whole repository
+
+90
+00:03:30,240 --> 00:03:33,600
+called .claude-plugin,
+
+91
+00:03:33,600 --> 00:03:35,320
+just like the .claude plugin
+
+92
+00:03:35,320 --> 00:03:39,720
+that was within this particular plugin itself,
+
+93
+00:03:39,720 --> 00:03:42,039
+and then within this, you make a new file,
+
+94
+00:03:42,039 --> 00:03:45,919
+and the file is called marketplace.json.
+
+95
+00:03:45,919 --> 00:03:49,000
+That's the name of the file that defines a marketplace,
+
+96
+00:03:49,000 --> 00:03:51,440
+and I'm going to paste in there some JSON
+
+97
+00:03:51,440 --> 00:03:55,000
+that defines my marketplace called edtools. Name is Ed.
+
+98
+00:03:55,000 --> 00:03:56,759
+You could call this marketplace anything you want,
+
+99
+00:03:56,759 --> 00:03:58,160
+but this will be mine,
+
+100
+00:03:58,160 --> 00:04:00,720
+and I put my name and an email,
+
+101
+00:04:00,720 --> 00:04:02,839
+and then a list of plugins,
+
+102
+00:04:02,839 --> 00:04:05,600
+and there's one called independent reviewer.
+
+103
+00:04:05,600 --> 00:04:08,880
+The code is at independent reviewer right there.
+
+104
+00:04:08,880 --> 00:04:09,960
+That's what it does,
+
+105
+00:04:09,960 --> 00:04:11,639
+and this defines the plugin,
+
+106
+00:04:11,639 --> 00:04:13,919
+the only plugin that is part of this marketplace,
+
+107
+00:04:13,919 --> 00:04:15,520
+but I could have many,
+
+108
+00:04:15,520 --> 00:04:17,959
+and this is the simple way to define a marketplace
+
+109
+00:04:17,959 --> 00:04:20,839
+of plugins that you will make available to others,
+
+110
+00:04:20,839 --> 00:04:22,279
+and once I've done that,
+
+111
+00:04:22,279 --> 00:04:25,920
+I can then run the slash plugin command,
+
+112
+00:04:25,920 --> 00:04:27,239
+and when I do that,
+
+113
+00:04:27,239 --> 00:04:28,720
+and let me make this a little bit bigger,
+
+114
+00:04:28,720 --> 00:04:31,320
+we'll have a look at how the marketplaces
+
+115
+00:04:31,320 --> 00:04:32,600
+are now presented to us,
+
+116
+00:04:32,600 --> 00:04:34,480
+so I go over to marketplaces,
+
+117
+00:04:34,480 --> 00:04:36,040
+and you'll see that the only marketplace
+
+118
+00:04:36,040 --> 00:04:39,519
+that I have access to is claude-plugins-official,
+
+119
+00:04:39,519 --> 00:04:42,440
+and I can go to add marketplace and press enter,
+
+120
+00:04:42,440 --> 00:04:43,920
+and this is where you can select
+
+121
+00:04:43,920 --> 00:04:45,720
+another marketplace to add in.
+
+122
+00:04:45,720 --> 00:04:48,359
+It could be a marketplace that you've discovered from GitHub,
+
+123
+00:04:48,359 --> 00:04:50,519
+it could be your company's one on GitHub,
+
+124
+00:04:50,519 --> 00:04:52,440
+it could be your one that you pushed to GitHub,
+
+125
+00:04:52,440 --> 00:04:55,200
+or you could just describe it locally right here,
+
+126
+00:04:55,200 --> 00:04:56,480
+which is what I'm gonna do right now.
+
+127
+00:04:56,480 --> 00:04:58,040
+I'm gonna do dot slash,
+
+128
+00:04:58,040 --> 00:05:00,760
+which means just my local directory right here,
+
+129
+00:05:00,760 --> 00:05:01,959
+and when I do that,
+
+130
+00:05:01,959 --> 00:05:04,559
+it's going to say that it knows about this.
+
+131
+00:05:04,559 --> 00:05:05,760
+This is now a marketplace,
+
+132
+00:05:05,760 --> 00:05:07,720
+and you can see independent reviewer
+
+133
+00:05:07,720 --> 00:05:11,200
+is the one plugin included in this marketplace.
+
+134
+00:05:11,200 --> 00:05:13,200
+Carry out independent review of all changes.
+
+135
+00:05:13,200 --> 00:05:14,559
+Exactly what we wanted.
+
+136
+00:05:14,559 --> 00:05:16,279
+If I go over to marketplaces right now,
+
+137
+00:05:16,279 --> 00:05:18,959
+you'll see that edtools is a marketplace
+
+138
+00:05:18,959 --> 00:05:21,720
+that's been added to my environment,
+
+139
+00:05:21,720 --> 00:05:22,799
+into my Claude code,
+
+140
+00:05:22,799 --> 00:05:25,119
+and I can have many plugins that I've added in here,
+
+141
+00:05:25,119 --> 00:05:27,720
+and so now I'm going to go back to discover,
+
+142
+00:05:28,640 --> 00:05:30,880
+or no, sorry, I'll go to marketplaces,
+
+143
+00:05:30,880 --> 00:05:32,720
+I'll go into edtools,
+
+144
+00:05:32,720 --> 00:05:34,640
+I'll say browse plugins,
+
+145
+00:05:34,640 --> 00:05:36,200
+here is independent reviewer
+
+146
+00:05:36,200 --> 00:05:37,799
+that we're looking at right now.
+
+147
+00:05:37,799 --> 00:05:40,839
+I can press space to say that I want to add that plugin
+
+148
+00:05:40,839 --> 00:05:42,399
+to my current Claude code,
+
+149
+00:05:42,399 --> 00:05:43,959
+and press enter,
+
+150
+00:05:43,959 --> 00:05:48,959
+and I'll say install for all collaborators
+
+151
+00:05:49,399 --> 00:05:50,279
+on this repository,
+
+152
+00:05:50,279 --> 00:05:51,440
+the project scope,
+
+153
+00:05:51,440 --> 00:05:52,559
+I'll select that,
+
+154
+00:05:52,559 --> 00:05:54,119
+and it's been installed.
+
+155
+00:05:54,119 --> 00:05:57,200
+Restart to load new plugins.
+
+156
+00:05:57,200 --> 00:05:58,399
+Excellent, let's do that.
+
+157
+00:05:58,399 --> 00:06:00,399
+I'm going to come out of Claude code,
+
+158
+00:06:00,399 --> 00:06:03,640
+I'm going to go back into Claude code, here we go,
+
+159
+00:06:03,640 --> 00:06:07,160
+and now let's do slash plugin to see what's installed,
+
+160
+00:06:07,160 --> 00:06:08,920
+and these are not discovered,
+
+161
+00:06:08,920 --> 00:06:10,320
+but go over to installed,
+
+162
+00:06:10,320 --> 00:06:13,320
+here we go, we've got code review,
+
+163
+00:06:13,679 --> 00:06:16,079
+code simplifier, context seven,
+
+164
+00:06:16,079 --> 00:06:17,679
+front-end design,
+
+165
+00:06:17,679 --> 00:06:20,000
+and up here, above all of that,
+
+166
+00:06:20,000 --> 00:06:22,000
+is independent reviewer.
+
+167
+00:06:22,000 --> 00:06:23,760
+That is installed,
+
+168
+00:06:23,760 --> 00:06:26,480
+which is a plugin from the edtools marketplace.
+
+169
+00:06:26,480 --> 00:06:28,160
+It worked, brilliant.
+
+170
+00:06:28,160 --> 00:06:31,559
+Now let's see if that hook is actually active.
+
+171
+00:06:31,559 --> 00:06:32,480
+This is so cool.
+
+172
+00:06:32,480 --> 00:06:34,040
+I'm going to come on in here,
+
+173
+00:06:34,040 --> 00:06:38,959
+I'm going to delete from here, the readme,
+
+174
+00:06:38,959 --> 00:06:40,519
+delete the readme,
+
+175
+00:06:40,519 --> 00:06:43,160
+and also move to trash,
+
+176
+00:06:44,000 --> 00:06:46,000
+and also let's open up the planning folder
+
+177
+00:06:46,000 --> 00:06:49,640
+and delete the review, move to trash,
+
+178
+00:06:49,640 --> 00:06:50,559
+and now I'm going to say,
+
+179
+00:06:50,559 --> 00:06:55,559
+please write a concise project readme.
+
+180
+00:06:58,040 --> 00:06:59,279
+And of course,
+
+181
+00:06:59,279 --> 00:07:00,760
+what we're hoping to see
+
+182
+00:07:00,760 --> 00:07:02,320
+is that this will kick off,
+
+183
+00:07:02,320 --> 00:07:04,160
+that it will write a readme,
+
+184
+00:07:04,160 --> 00:07:07,079
+and that is then going to trigger the plugin,
+
+185
+00:07:07,079 --> 00:07:09,640
+which is going to do a code review
+
+186
+00:07:09,640 --> 00:07:12,799
+by launching Codex behind the scenes,
+
+187
+00:07:12,799 --> 00:07:14,679
+and all of this is going to happen,
+
+188
+00:07:14,679 --> 00:07:17,480
+and we'll see now that it's still thinking,
+
+189
+00:07:17,480 --> 00:07:19,959
+it's still working on the main instruction.
+
+190
+00:07:19,959 --> 00:07:21,399
+We'll see how that goes.
+
+191
+00:07:21,399 --> 00:07:22,839
+Hopefully, we're going to see a readme.
+
+192
+00:07:22,839 --> 00:07:24,880
+We can be pretty confident about that,
+
+193
+00:07:24,880 --> 00:07:26,200
+but perhaps the bigger task
+
+194
+00:07:26,200 --> 00:07:28,839
+is whether we're then going to see the code review.
+
+195
+00:07:28,839 --> 00:07:31,559
+We'll say yes to this, yes.
+
+196
+00:07:31,559 --> 00:07:33,279
+So it's written the readme,
+
+197
+00:07:33,279 --> 00:07:34,480
+and now we're looking to see
+
+198
+00:07:34,480 --> 00:07:35,920
+if it's going to call a stop hook.
+
+199
+00:07:35,920 --> 00:07:39,239
+It is calling a stop hook. That's great,
+
+200
+00:07:39,239 --> 00:07:41,399
+and we know we deleted the stop hook
+
+201
+00:07:41,720 --> 00:07:44,440
+from the immediate .cloud directory,
+
+202
+00:07:44,440 --> 00:07:45,799
+so it's not coming from here,
+
+203
+00:07:45,799 --> 00:07:48,160
+from the settings.json. That is empty.
+
+204
+00:07:48,160 --> 00:07:49,279
+It is running the one
+
+205
+00:07:49,279 --> 00:07:52,320
+that comes from our marketplace,
+
+206
+00:07:52,320 --> 00:07:53,720
+from our plugin.
+
+207
+00:07:53,720 --> 00:07:55,880
+That plugin is being run,
+
+208
+00:07:55,880 --> 00:07:56,959
+and any second now,
+
+209
+00:07:56,959 --> 00:08:01,959
+we hope to see that we also have a review.md.
+
+210
+00:08:02,279 --> 00:08:03,320
+I will see you in a second.
+
+211
+00:08:03,320 --> 00:08:05,320
+Yes, indeed, we have.
+
+212
+00:08:05,320 --> 00:08:07,559
+Review.md has been written,
+
+213
+00:08:07,559 --> 00:08:09,559
+and it has noted
+
+214
+00:08:09,559 --> 00:08:12,000
+that there's a new hook
+
+215
+00:08:12,000 --> 00:08:13,239
+that is in this plugin,
+
+216
+00:08:13,239 --> 00:08:17,239
+and it's worried about possible recursive loop,
+
+217
+00:08:17,239 --> 00:08:19,440
+but I think no such risk exists,
+
+218
+00:08:19,440 --> 00:08:20,720
+but still, it ran.
+
+219
+00:08:20,720 --> 00:08:22,399
+It created review.md.
+
+220
+00:08:22,399 --> 00:08:24,040
+We've had success.
+
+221
+00:08:24,040 --> 00:08:26,600
+So look, a lot just happened,
+
+222
+00:08:26,600 --> 00:08:28,440
+and I understand it's a lot to take on,
+
+223
+00:08:28,440 --> 00:08:30,000
+and really, I want to emphasize,
+
+224
+00:08:30,000 --> 00:08:31,440
+if you know a lot about Cloud Code,
+
+225
+00:08:31,440 --> 00:08:33,280
+then this might have been quite insightful for you.
+
+226
+00:08:33,280 --> 00:08:34,119
+This might be stuff
+
+227
+00:08:34,119 --> 00:08:35,799
+you could put into practice right away,
+
+228
+00:08:35,799 --> 00:08:38,479
+but if you're still relatively new to Cloud Code,
+
+229
+00:08:38,479 --> 00:08:40,400
+then just see this as a way to get a flavor
+
+230
+00:08:40,400 --> 00:08:43,039
+for the kinds of functionalities that you can add.
+
+231
+00:08:43,039 --> 00:08:46,359
+You can make a directory that is your plugin.
+
+232
+00:08:46,359 --> 00:08:48,919
+Within your plugin, you have a .cloud plugin,
+
+233
+00:08:48,919 --> 00:08:50,479
+and this is where you put the JSON
+
+234
+00:08:50,479 --> 00:08:52,159
+that describes what it does.
+
+235
+00:08:52,159 --> 00:08:55,000
+You then have subfolders for commands,
+
+236
+00:08:55,000 --> 00:08:57,760
+for agents that have subagents,
+
+237
+00:08:57,760 --> 00:09:00,520
+for hooks, and for skills,
+
+238
+00:09:00,520 --> 00:09:01,880
+and that is where you configure
+
+239
+00:09:01,880 --> 00:09:03,840
+all of the properties of your plugin
+
+240
+00:09:03,840 --> 00:09:05,559
+that will be added in one shot
+
+241
+00:09:05,559 --> 00:09:07,520
+when someone uses your plugin,
+
+242
+00:09:07,520 --> 00:09:09,880
+and there is a way to just use just your one plugin
+
+243
+00:09:09,880 --> 00:09:11,239
+when you launch Cloud,
+
+244
+00:09:11,239 --> 00:09:12,359
+but the better way to do it
+
+245
+00:09:12,359 --> 00:09:14,440
+is to create your own marketplace,
+
+246
+00:09:14,440 --> 00:09:18,320
+and you do that by creating a .cloud plugin folder
+
+247
+00:09:18,320 --> 00:09:20,559
+and having a marketplace.json,
+
+248
+00:09:20,559 --> 00:09:22,640
+which is where you list all of the plugins
+
+249
+00:09:22,640 --> 00:09:24,359
+that are part of your marketplace,
+
+250
+00:09:24,359 --> 00:09:25,599
+and once you've done that,
+
+251
+00:09:25,599 --> 00:09:29,080
+you can simply go to the slash plugin in Cloud Code,
+
+252
+00:09:29,080 --> 00:09:32,599
+include this marketplace, and add on the plugins.
+
+253
+00:09:32,599 --> 00:09:34,640
+Those are the steps that we carried out
+
+254
+00:09:34,640 --> 00:09:36,760
+in order to add our own plugin right now.
+
+255
+00:09:36,799 --> 00:09:39,359
+Okay, look, we covered tons of ground today,
+
+256
+00:09:39,359 --> 00:09:40,960
+lots of different things,
+
+257
+00:09:40,960 --> 00:09:43,520
+and probably your head's spinning a bit
+
+258
+00:09:43,520 --> 00:09:45,799
+with, okay, when do I use what?
+
+259
+00:09:45,799 --> 00:09:48,000
+How does this all fit together? Don't worry.
+
+260
+00:09:48,000 --> 00:09:50,679
+As usual, we'll be going through this quite a few times,
+
+261
+00:09:50,679 --> 00:09:51,880
+putting them into practice,
+
+262
+00:09:51,880 --> 00:09:54,679
+and most of these are things that you will rarely use.
+
+263
+00:09:54,679 --> 00:09:57,640
+It's good to know you've got them if you need them.
+
+264
+00:09:57,640 --> 00:09:59,960
+Okay, just before we wrap today,
+
+265
+00:09:59,960 --> 00:10:03,239
+I want to just summarize the pros and cons
+
+266
+00:10:03,239 --> 00:10:05,440
+of subagents one more time.
+
+267
+00:10:05,440 --> 00:10:08,599
+So when you're thinking about using subagents
+
+268
+00:10:08,599 --> 00:10:11,080
+as the way to add functionality
+
+269
+00:10:11,080 --> 00:10:13,760
+versus things like skills and commands,
+
+270
+00:10:13,760 --> 00:10:14,919
+remember, first of all,
+
+271
+00:10:14,919 --> 00:10:18,119
+it allows you to do more in parallel at the same time.
+
+272
+00:10:18,119 --> 00:10:20,679
+You can have multiple subagents working together.
+
+273
+00:10:20,679 --> 00:10:22,320
+They can be self-corrective.
+
+274
+00:10:22,320 --> 00:10:24,640
+They can not only allow you to do more at once,
+
+275
+00:10:24,640 --> 00:10:26,679
+but they can also sort of have a negative feedback
+
+276
+00:10:26,679 --> 00:10:29,640
+that they keep you more under control, doing a bit less.
+
+277
+00:10:29,640 --> 00:10:31,840
+They can be very efficient for your context.
+
+278
+00:10:31,840 --> 00:10:34,280
+It's usually the first reason you use subagents
+
+279
+00:10:34,280 --> 00:10:37,000
+is because you pull stuff off the main context
+
+280
+00:10:37,000 --> 00:10:38,320
+for Claude Code,
+
+281
+00:10:38,320 --> 00:10:40,280
+and they can be focused on one task
+
+282
+00:10:40,280 --> 00:10:42,599
+that allows you to perfect the prompting,
+
+283
+00:10:42,599 --> 00:10:45,679
+perfect the task at hand, do one thing really well,
+
+284
+00:10:45,679 --> 00:10:47,719
+and be really good at it,
+
+285
+00:10:47,719 --> 00:10:50,039
+keeping, again, that kind of context
+
+286
+00:10:50,039 --> 00:10:52,320
+off your main Claude Code.
+
+287
+00:10:52,320 --> 00:10:55,359
+But with these strengths come a few drawbacks.
+
+288
+00:10:55,359 --> 00:10:58,799
+So any time you've got this kind of ability
+
+289
+00:10:58,799 --> 00:11:00,640
+to delegate to some other process,
+
+290
+00:11:00,640 --> 00:11:02,719
+you're adding more moving parts.
+
+291
+00:11:02,719 --> 00:11:04,880
+There's more complexity in your system,
+
+292
+00:11:04,880 --> 00:11:06,559
+which means that more things can go wrong
+
+293
+00:11:06,559 --> 00:11:09,719
+in a mysterious way that's harder to track down.
+
+294
+00:11:09,719 --> 00:11:12,239
+There are what I call boundary issues
+
+295
+00:11:12,239 --> 00:11:14,359
+or problems at the interfaces
+
+296
+00:11:14,359 --> 00:11:16,919
+between your subagent and your main agent
+
+297
+00:11:16,919 --> 00:11:18,799
+that can result in mistakes.
+
+298
+00:11:18,799 --> 00:11:21,840
+You can have this amplification of problems
+
+299
+00:11:21,840 --> 00:11:23,400
+when you divvy up the task.
+
+300
+00:11:23,400 --> 00:11:24,799
+Something can go a bit wrong,
+
+301
+00:11:24,799 --> 00:11:26,840
+and then agents go off in different directions,
+
+302
+00:11:26,840 --> 00:11:28,679
+and it gets more and more wrong
+
+303
+00:11:28,679 --> 00:11:30,840
+in a way that's kind of hard to recover,
+
+304
+00:11:30,840 --> 00:11:32,640
+compounding errors.
+
+305
+00:11:33,640 --> 00:11:35,640
+Whilst subagents are sometimes touted
+
+306
+00:11:35,640 --> 00:11:37,119
+as a way to save money
+
+307
+00:11:37,119 --> 00:11:39,159
+because you can use a cheaper model
+
+308
+00:11:39,159 --> 00:11:41,080
+to do some of your processing,
+
+309
+00:11:41,080 --> 00:11:43,640
+they can also be a way that money can add up
+
+310
+00:11:43,640 --> 00:11:45,239
+because you're just doing a lot more.
+
+311
+00:11:45,239 --> 00:11:46,679
+You've got more churn,
+
+312
+00:11:46,679 --> 00:11:47,520
+particularly if you've got
+
+313
+00:11:47,520 --> 00:11:49,000
+the sort of self-correcting agents
+
+314
+00:11:49,000 --> 00:11:50,559
+that are doing code reviews,
+
+315
+00:11:50,559 --> 00:11:51,880
+doing document reviews,
+
+316
+00:11:51,880 --> 00:11:53,200
+coming back for feedback.
+
+317
+00:11:53,200 --> 00:11:54,479
+So more is going on.
+
+318
+00:11:54,479 --> 00:11:57,080
+Hopefully that results in better outcomes,
+
+319
+00:11:57,080 --> 00:11:59,080
+but it might also mean that ultimately
+
+320
+00:11:59,080 --> 00:12:00,919
+you spend more getting there.
+
+321
+00:12:00,919 --> 00:12:02,159
+So look, needless to say,
+
+322
+00:12:02,200 --> 00:12:03,280
+we're going to have more time
+
+323
+00:12:03,280 --> 00:12:04,359
+to talk about this.
+
+324
+00:12:04,359 --> 00:12:05,919
+I don't want to overwhelm you
+
+325
+00:12:05,919 --> 00:12:07,799
+with these bits and pieces.
+
+326
+00:12:07,799 --> 00:12:08,799
+We'll go through some of this
+
+327
+00:12:08,799 --> 00:12:10,320
+in a recap tomorrow.
+
+328
+00:12:10,320 --> 00:12:11,799
+I also, with the plugins,
+
+329
+00:12:11,799 --> 00:12:14,559
+I didn't mention how you put MCP servers
+
+330
+00:12:14,559 --> 00:12:15,440
+in the mix as well.
+
+331
+00:12:15,440 --> 00:12:16,440
+So I'll touch on that,
+
+332
+00:12:16,440 --> 00:12:18,119
+and things called LSP as well,
+
+333
+00:12:18,119 --> 00:12:19,119
+which I didn't mention,
+
+334
+00:12:19,119 --> 00:12:20,440
+which we'll get to too.
+
+335
+00:12:20,440 --> 00:12:23,479
+But the main topic for tomorrow is sandboxing,
+
+336
+00:12:23,479 --> 00:12:25,359
+which is such an important one,
+
+337
+00:12:25,359 --> 00:12:27,359
+and also being able to run
+
+338
+00:12:27,359 --> 00:12:29,000
+Cloud Code remotely.
+
+339
+00:12:29,000 --> 00:12:31,599
+So a few juicy topics for tomorrow
+
+340
+00:12:31,599 --> 00:12:36,000
+that rounds up the couple of yellow days. And with that,
+
+341
+00:12:36,000 --> 00:12:39,239
+that brings us to 73% complete.
+
+342
+00:12:39,239 --> 00:12:41,159
+We're entering the home stretch.
+
+343
+00:12:41,159 --> 00:12:42,159
+Things are getting harder,
+
+344
+00:12:42,159 --> 00:12:44,159
+but that's because we're doing so much more,
+
+345
+00:12:44,159 --> 00:12:45,799
+and tomorrow's no exception.
+
+346
+00:12:45,799 --> 00:12:46,719
+I'll see you then.
+
