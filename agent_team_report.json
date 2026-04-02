@@ -1,8 +1,0 @@
-{
-  "agent_team_report": {
-    "team_size": 3,
-    "roles": ["market-agent", "strategy-agent", "execution-agent"],
-    "status": "success",
-    "notes": "Agent team pipeline complete with simulated orchestrator, chat command, and trade execution test."
-  }
-}

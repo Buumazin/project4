@@ -13,6 +13,36 @@ Built entirely by coding agents as a capstone project for an agentic AI coding c
 - **Watchlist management** — track tickers manually or via AI
 - **Dark terminal aesthetic** — Bloomberg-inspired, data-dense layout
 
+## WHY (Why FinAlly exists)
+
+- Learn the full AI-agent stack from data ingestion to execution.
+- Demonstrate practical agent orchestration: real-time price stream → strategy decision → trade execution.
+- Provide a safe sandbox where students can test commands (e.g., `mua AAPL 10`) without real market risk.
+- Show end-to-end pipeline that a production quant trading desk could build and extend.
+
+## Multi-Agent Explanation
+
+FinAlly is designed as a cooperative multi-agent system:
+
+1. **Market Agent (Data Provider)**
+   - Simulates or ingests price feeds (`/api/stream/prices` via SSE).
+   - Maintains current state in `MarketDataSimulator`.
+
+2. **Strategy Agent**
+   - In `frontend` auto-trading mode or AI chat parser determines momentum/mean-reversion signals.
+   - Evaluates when to send buy/sell orders.
+
+3. **Execution Agent**
+   - Backend endpoints `/api/trades/buy` and `/api/trades/sell` execute simulated orders and update positions.
+   - Writes history to SQLite.
+
+4. **Chat Agent**
+   - Parses natural language commands from `/api/chat`.
+   - Uses parser + optional Llama/OpenRouter model to resolve intent and executes trade automatically.
+
+5. **Orchestrator**
+   - Optional script `backend/src/orchestrator.py` demonstrates system-level coordination and pipeline monitoring.
+
 ## Architecture
 
 Single Docker container serving everything on port 8000:
@@ -22,6 +52,43 @@ Single Docker container serving everything on port 8000:
 - **Database**: SQLite with lazy initialization
 - **AI**: LiteLLM → OpenRouter (Cerebras inference) with structured outputs
 - **Market data**: Built-in GBM simulator (default) or Massive API (optional)
+
+## Demo
+
+### 1) Local development
+
+```bash
+# Run backend
+cd backend
+python -m uvicorn src.main:app --reload --host 127.0.0.1 --port 8000
+
+# Run frontend
+cd ../frontend
+npm run dev
+```
+
+Open `http://localhost:3000`.
+
+### 2) Live trade via dashboard
+
+- Chọn ticker, số lượng, bấm `Buy`/`Sell`.
+- Xem `Recent Trades`, `Portfolio` và biểu đồ cập nhật.
+
+### 3) AI chat command (mua/bán)
+
+- Gõ `mua AAPL 5` hoặc `bán MSFT 3` trong chat.
+- Backend `/api/chat` parse và tự gọi `/api/trades/buy` hoặc `/api/trades/sell`.
+- Lịch sử chat + trade history được cập nhật.
+
+### 4) Llama local variant
+
+- Cài `llama.cpp` + model 7B Q4.
+- Khởi chạy Llama API: `./main -m llama-7b-q4_0.bin --api --host 0.0.0.0 --port 8080`.
+- Set env:
+  - `LLAMA_API_URL=http://127.0.0.1:8080/v1/completions`
+  - `LLAMA_MODEL=llama-7b`
+
+API `/api/chat` sẽ gọi Llama, làm multi-agent inference.
 
 ## Quick Start
 
@@ -115,4 +182,4 @@ finally/
 
 ## License
 
-See [LICENSE](LICENSE).
+See .
