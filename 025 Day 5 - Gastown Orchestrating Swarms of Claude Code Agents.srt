@@ -1,0 +1,540 @@
+1
+00:00:00,000 --> 00:00:07,440
+Well, hello. I can't believe it. It's the last day. It's the finale. Welcome to week three,
+
+2
+00:00:07,440 --> 00:00:14,479
+day five. Our last time together, at least for this journey. Well, let's make it count. I got a
+
+3
+00:00:14,479 --> 00:00:22,559
+great day in store for you. So yesterday was a purple day, our final purple day. We covered
+
+4
+00:00:22,559 --> 00:00:28,239
+the idea of having swarms of agents, lots of agents, and we had, what, seven or eight of them,
+
+5
+00:00:28,239 --> 00:00:35,360
+and we used Florida agent teams. And then we looked at the more robust orchestration of something
+
+6
+00:00:35,360 --> 00:00:39,680
+like GSD, when there's a step-by-step process and lots of checks and double checks, and it
+
+7
+00:00:39,680 --> 00:00:46,400
+took five hours, and we got a pretty good result. And in fact, both times, we got two zero-shot
+
+8
+00:00:46,400 --> 00:00:51,520
+results. And it's true, the more that I think about it, that the second one didn't have any
+
+9
+00:00:51,520 --> 00:00:55,599
+major defects, where the first one definitely did. Even if the first one looked, they both
+
+10
+00:00:55,599 --> 00:01:01,759
+looked very fancy. But it was a great result, and it really gives you that feeling of the art
+
+11
+00:01:01,759 --> 00:01:07,760
+of the possible, what can be achieved if you are bold. And we started out, of course, with Claude
+
+12
+00:01:07,760 --> 00:01:14,000
+agent teams, and I took you through this chart from Claude's website that compares sub-agents
+
+13
+00:01:14,000 --> 00:01:19,519
+that we're pretty familiar with now with agent teams, and how agent teams are just a bit more
+
+14
+00:01:19,599 --> 00:01:26,239
+out there, and the results are more unpredictable, but it's fast, and you get a lot done, and it's
+
+15
+00:01:26,239 --> 00:01:32,080
+really exciting. A bit nerve-wracking, but exciting. And we got great results, albeit for a reasonably
+
+16
+00:01:32,080 --> 00:01:37,120
+well-contained project. And then straight after this, of course, we then moved on to GSD, which
+
+17
+00:01:37,120 --> 00:01:42,000
+is an example of, there are many others like it, of these sort of spec-driven designs, when you
+
+18
+00:01:42,000 --> 00:01:46,720
+are orchestrating across lots of agents. It felt very much more serial, even though some things
+
+19
+00:01:46,720 --> 00:01:50,239
+happened in parallel. As I say, it took a long time, there's a lot of double-checking and
+
+20
+00:01:50,239 --> 00:01:55,919
+triple-checking, a lot of planning, and then executing, and then verifying. But the results do
+
+21
+00:01:55,919 --> 00:02:01,519
+speak for themselves. Really impressive. And in case you forgot, this is what it looked like.
+
+22
+00:02:01,519 --> 00:02:07,839
+This was our first result, our beautiful result, coming from Claude agent teams. And there you see
+
+23
+00:02:07,839 --> 00:02:11,440
+the heat map just switched. You've got this beautiful heat map, you've got this nice chat,
+
+24
+00:02:12,000 --> 00:02:18,160
+super fast. I just tried it. And you've got here the watch list, and the positions you've got,
+
+25
+00:02:18,160 --> 00:02:23,520
+and the overall portfolio P&L. Really, really nicely done. Very visual, very responsive. Look
+
+26
+00:02:23,520 --> 00:02:30,800
+at these. These charts are terrific. And then over here, very similar indeed, is, of course,
+
+27
+00:02:30,800 --> 00:02:37,440
+the result from GSD. It seems to be, as I say, more robust to new tickers being added.
+
+28
+00:02:38,240 --> 00:02:43,119
+And it's generally got, it does have a bit more of a polished look to it. Maybe I'm being unfair
+
+29
+00:02:43,119 --> 00:02:47,520
+about the purple background. After all, that is one of our brand colors in this case. They are
+
+30
+00:02:47,520 --> 00:02:53,600
+both, you've got to say, they're both fantastic products. Remembering, both of these cases are
+
+31
+00:02:53,600 --> 00:02:59,600
+zero shot. We didn't do any debugging ourselves. We didn't come back and say, this is a bug.
+
+32
+00:02:59,600 --> 00:03:05,039
+Both of these are just the first time we brought it up after giving it all of those instructions.
+
+33
+00:03:05,039 --> 00:03:11,119
+And they're huge amounts of code. And so it's just, it's extraordinary. It's absolutely
+
+34
+00:03:11,119 --> 00:03:15,759
+extraordinary. Well, I thought I'd bring this up one more time, the eight stages from Steve
+
+35
+00:03:15,759 --> 00:03:20,800
+Yaggy. And you remember, basically, stage six is what we'd already been working with for a bit.
+
+36
+00:03:20,800 --> 00:03:25,839
+Stage seven, we've never really done it per se. We haven't brought up 10 agents and manually
+
+37
+00:03:25,839 --> 00:03:29,600
+managed them, because we've allowed it to automatically manage them right away. We sort
+
+38
+00:03:29,600 --> 00:03:34,240
+of jumped straight to stage eight, which is the right way to do it. And we did it with agents.
+
+39
+00:03:34,240 --> 00:03:40,160
+And then we did it by orchestrating agents. And this chart, of course, came from a blog post by
+
+40
+00:03:40,160 --> 00:03:45,839
+Steve Yaggy. And the reason he did it was to introduce something that is about as radical
+
+41
+00:03:45,839 --> 00:03:52,960
+as you can get, which is a product that he built that's called Gastown, and that takes stage eight
+
+42
+00:03:52,960 --> 00:04:00,399
+to a completely different extreme. If you think that something like clawed agent teams is kind
+
+43
+00:04:00,399 --> 00:04:05,919
+of out there, kind of radical, compared to GSD, there's clearly very disciplined and very
+
+44
+00:04:05,919 --> 00:04:14,000
+structured. So if you've got GSD on one end, and you've got agent teams here, well, then Gastown
+
+45
+00:04:14,000 --> 00:04:20,320
+is like way over there by a mile. And we're going to take a look at it right now. Well, here I am in
+
+46
+00:04:20,320 --> 00:04:25,279
+the repo for Gastown, which will be linked in the resources. And I want to say one more time that
+
+47
+00:04:25,279 --> 00:04:30,959
+this next segment is completely optional. I recommend you watch me do it and use it as a way
+
+48
+00:04:30,959 --> 00:04:35,760
+to get a sense for what this is all about. If you really wish to, then for sure you can replicate
+
+49
+00:04:35,760 --> 00:04:41,679
+what I do. But be warned, it's a bit chaotic. It's a bit of madness. If it doesn't work out for you,
+
+50
+00:04:41,679 --> 00:04:48,640
+then I would just move on, take this more as a way of seeing the possible. And so let me now
+
+51
+00:04:48,640 --> 00:04:54,399
+walk you through the documentation for Gastown. So what is it? Well, it describes itself as a
+
+52
+00:04:54,480 --> 00:05:00,640
+workspace manager. But really, it's just a fancy set of kind of fabrics built around
+
+53
+00:05:00,640 --> 00:05:06,799
+Cloud Code or any coding agent. It even describes itself somewhere as a sort of the new IDE
+
+54
+00:05:06,799 --> 00:05:14,160
+construct. It's just a set of different wrappers built around coding agents, a bit like GSD.
+
+55
+00:05:14,160 --> 00:05:20,239
+It's trying to solve the challenge of context, of manually coordinating different agents.
+
+56
+00:05:20,239 --> 00:05:27,359
+You can have many agents. You can have 20 or 30 agents, according to Steve, all participating in
+
+57
+00:05:27,359 --> 00:05:33,040
+this. And it's basically organizing them into a hierarchy, into a structure with many different
+
+58
+00:05:33,040 --> 00:05:38,480
+agents taking responsibilities with things like mail between them as a way to coordinate with
+
+59
+00:05:38,480 --> 00:05:44,000
+all sorts of structure to try and make it be reliable and repeatable in a sort of controlled
+
+60
+00:05:44,000 --> 00:05:49,440
+chaos when you have 20 agents. We won't have that many on this example. We'll have maybe six to
+
+61
+00:05:49,440 --> 00:05:53,839
+eight, but you'll get a good sense of how it works. Now, one of the things to know about Gastown
+
+62
+00:05:53,839 --> 00:06:00,000
+is that it has its own lingo, a whole vocabulary of words. And you can just go with the flow and
+
+63
+00:06:00,000 --> 00:06:03,519
+watch what I do and sort of ignore the lingo. If you really want to dive in there, then you're
+
+64
+00:06:03,519 --> 00:06:08,320
+going to have to learn a few words. Take a paper and pen, write them down, get your glossary ready.
+
+65
+00:06:08,320 --> 00:06:12,640
+One word you'll see a lot is this thing called Beads, which is a piece of infrastructure that
+
+66
+00:06:12,640 --> 00:06:17,600
+was written by Steve that this is built on top of. But Beads gives it a way of having
+
+67
+00:06:17,600 --> 00:06:23,279
+things a bit like get issues, like lets it track different items with an ID. That's all part of
+
+68
+00:06:23,279 --> 00:06:28,799
+what it calls the Beads ledger that it is built on top of. And now let me tell you about the kind
+
+69
+00:06:28,799 --> 00:06:34,720
+of hierarchy of different agents that go to work for you. The whole of the world that you operate
+
+70
+00:06:34,720 --> 00:06:41,519
+in with Gastown is called your town workspace, and it sits in a directory, GT, in the top level. So
+
+71
+00:06:41,519 --> 00:06:46,000
+this is kind of outside the construct of like the projects folder and things like this. This has its
+
+72
+00:06:46,000 --> 00:06:51,839
+own folder in its own right. GT in your home directory, that is your town workspace. And each
+
+73
+00:06:51,839 --> 00:06:57,519
+of your projects are called rigs. So that is the first of the big words you have to remember.
+
+74
+00:06:57,519 --> 00:07:02,480
+A project is known as a rig in the Gastown terminology. So there are rigs. We're going
+
+75
+00:07:02,480 --> 00:07:06,640
+to have a rig called Fin for the Finally project. And you'll also see at some point that I have an
+
+76
+00:07:06,640 --> 00:07:11,119
+old rig called Finally because I started with that and it broke. And so there's like an old
+
+77
+00:07:11,119 --> 00:07:16,079
+one hanging out there. So you'll see I have two rigs, but Fin is going to be the main rig that I
+
+78
+00:07:16,079 --> 00:07:23,679
+will work with. That is a project. Okay, only two more words to know. Crew. Crew is like a workspace
+
+79
+00:07:23,679 --> 00:07:28,880
+that you will have in your project. You'll see that mine will be called Ed. So Ed will be a crew
+
+80
+00:07:28,880 --> 00:07:36,079
+working in Fin. And so you have a crew in your rig. Crew in the rig. Crew is Ed, rig is Fin.
+
+81
+00:07:36,640 --> 00:07:43,279
+And then the other thing is called a Polcat. And a Polcat is a worker. So we will end up having
+
+82
+00:07:43,279 --> 00:07:49,119
+many Polcats. Each Polcat gets assigned tasks and it works on them. So you're going to see a bunch
+
+83
+00:07:49,119 --> 00:07:56,079
+of these Polcats. All right. So Polcat is like a worker, a worker agent. A crew is like Ed's crew.
+
+84
+00:07:56,079 --> 00:08:01,679
+And a rig is the project. And then there's one more thing to mention, which is called the Mayor.
+
+85
+00:08:01,679 --> 00:08:06,480
+And the Mayor, as far as you're concerned, feels like a Claude Code. When you launch the Mayor,
+
+86
+00:08:06,480 --> 00:08:10,559
+up comes Claude Code. In fact, all of these are all Claude Codes as well. There's tons of
+
+87
+00:08:10,559 --> 00:08:14,480
+Claude Codes running, but you don't directly interact with them. You interact with one
+
+88
+00:08:14,480 --> 00:08:20,160
+Claude Code, and that is the Mayor. That is the Claude Code that you and I will talk to.
+
+89
+00:08:20,160 --> 00:08:24,559
+We will first interact with that one. And there is a way for us to flip and see all the other
+
+90
+00:08:24,559 --> 00:08:30,000
+Claude Codes running behind the scenes. So that is called the Mayor. The Mayor is the coordinator,
+
+91
+00:08:30,000 --> 00:08:34,159
+the one you talk to. And then these different things talk to each other through a mailbox.
+
+92
+00:08:34,159 --> 00:08:39,760
+There's tons of stuff. And I'm scraping the surface of all the action that happens when you
+
+93
+00:08:39,760 --> 00:08:46,320
+use this. It feels like tons is going on. And my full understanding is fairly surface level,
+
+94
+00:08:46,320 --> 00:08:50,080
+as you can tell. But you'll see that it will all hold together. We're going to have a Mayor. We're
+
+95
+00:08:50,080 --> 00:08:53,840
+going to have a rig. We're going to have a crew. We're going to have Polcats. And together, they're
+
+96
+00:08:53,840 --> 00:08:57,440
+going to work on Finn. But you shouldn't take my word for it. You should read all of this. You
+
+97
+00:08:57,440 --> 00:09:01,919
+can read the definitions of the town, the rigs, the crew members, the Polcats. And then I should
+
+98
+00:09:01,919 --> 00:09:08,640
+also say a convoy. I can't believe I forgot that. A convoy is like a bundle of tasks. The tasks each
+
+99
+00:09:08,640 --> 00:09:14,719
+are different beads. A bundle of tasks that get assigned to one of the agents, one of the Polcats.
+
+100
+00:09:14,719 --> 00:09:19,200
+And you'll see convoys being created and beads being created. And you can do all of that by
+
+101
+00:09:19,200 --> 00:09:23,520
+just talking with the Mayor. You don't need to. There are various commands to create all of these
+
+102
+00:09:23,520 --> 00:09:28,479
+things. But you can also just put it in natural language to the Mayor. And they will do it for you.
+
+103
+00:09:29,359 --> 00:09:35,840
+And yeah, it explains how tasks have this ID that they are assigned. All right. And then to install
+
+104
+00:09:35,840 --> 00:09:41,840
+it, to install it on a Mac, it's this simple command brew install Gastown on a PC. It's this
+
+105
+00:09:41,840 --> 00:09:47,359
+one. When I ran this and it installed beads as well and installed everything, everything got set
+
+106
+00:09:47,359 --> 00:09:53,119
+up. I just ran it in a terminal. So you should just bring up a terminal on a PC, a PowerShell.
+
+107
+00:09:53,119 --> 00:09:59,359
+And then run it there. If you're on a PC, it'd be better to do it in WSL and run Tmux.
+
+108
+00:09:59,359 --> 00:10:03,200
+If you know what that is, it's going to make the experience better. And if you don't know what any
+
+109
+00:10:03,200 --> 00:10:07,200
+of that is, remember, you don't need to do this. You can just watch me. I'm going to probably say
+
+110
+00:10:07,200 --> 00:10:12,080
+that a ton of times. You can watch me do it and just get a sense of it. This is to show you this
+
+111
+00:10:12,080 --> 00:10:19,919
+sort of radical semi-chaos of running a big orchestration platform together. All right.
+
+112
+00:10:19,919 --> 00:10:25,599
+Let's go to a terminal and get the show on the road. Okay. I've actually brought up a terminal.
+
+113
+00:10:25,599 --> 00:10:31,039
+What you're looking at here is a terminal. If you're on a Mac, this is the terminal program.
+
+114
+00:10:31,039 --> 00:10:36,559
+I'm actually using something called iTerm2. If you're on a PC, then PowerShell. And follow the
+
+115
+00:10:36,559 --> 00:10:42,719
+instructions that are in the GitHub repo that I'll link. And don't feel like you have to do this. You
+
+116
+00:10:42,719 --> 00:10:47,280
+could just watch me because I just want to give you a feel for what this is like. And the command
+
+117
+00:10:47,280 --> 00:10:54,559
+start GT for Gastown. I'm going to start by installing it in my home directory in a folder
+
+118
+00:10:54,559 --> 00:11:00,640
+called GT. And telling it to use Git. And that is the normal way that it's set up. And it's done.
+
+119
+00:11:00,640 --> 00:11:07,679
+And it has been created. And I'm now going to go into that directory. That's where I am right now.
+
+120
+00:11:07,679 --> 00:11:16,320
+And now I'm going to create a rig. So, I do GT, not Git. GT rig add. And I name the rig. And I
+
+121
+00:11:16,320 --> 00:11:24,320
+will call it Fin. And it's a bit like finally. But it's Fin. Like the very end. And I've got a
+
+122
+00:11:24,320 --> 00:11:31,679
+repo. The next thing you do is you give it a GitHub repo. It's at GitHub.com. And it's just called
+
+123
+00:11:31,679 --> 00:11:42,719
+Fin for the end. There we go. Done. All setting up happened. Okay. And it has all been set up.
+
+124
+00:11:42,719 --> 00:11:52,239
+And now the next thing to do is to add a crew to this rig. So, rig and crew are the two big
+
+125
+00:11:52,239 --> 00:11:59,359
+concepts. And I do that with GT crew add. I give it a name. I'll call it Ed. I tell it the rig
+
+126
+00:11:59,359 --> 00:12:05,520
+dash dash rig. And the name of the rig is Fin. So, that has now set up a crew called Ed for Fin.
+
+127
+00:12:05,520 --> 00:12:13,679
+And now I can go into that directory. So, that is in it is in the rig's directory. So,
+
+128
+00:12:13,679 --> 00:12:17,280
+there should now be a directory called Fin. It says just above. Start working with it.
+
+129
+00:12:17,280 --> 00:12:24,320
+Go into Fin slash crew slash Ed. And that is where I now am. And there is this is now where
+
+130
+00:12:24,320 --> 00:12:30,960
+my repo has been cloned. There is a single file called spec. And now with all of this,
+
+131
+00:12:30,960 --> 00:12:39,200
+I can type this command, GT mayor attach. And this is going to launch Claude Code and go into
+
+132
+00:12:39,200 --> 00:12:46,080
+it. Let's see that happening. It launches Claude Code. Here it is. Claude Code is running. And
+
+133
+00:12:46,080 --> 00:12:52,000
+it's looking at what's going on. It's looking for instructions. And it says no hooked work,
+
+134
+00:12:52,000 --> 00:13:00,000
+no mail, inbox is empty, waiting for instructions. And now, now I can give it instructions. Now,
+
+135
+00:13:00,000 --> 00:13:03,039
+there's many ways to do it. And we're going to try and do it the simplest way.
+

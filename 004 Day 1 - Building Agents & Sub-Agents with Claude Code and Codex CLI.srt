@@ -1,0 +1,1156 @@
+1
+00:00:00,000 --> 00:00:04,078
+And now we get to talk about agents and sub-agents.
+
+2
+00:00:04,078 --> 00:00:07,679
+And let's start with agents or multi-agents.
+
+3
+00:00:07,679 --> 00:00:11,439
+And as I said before, I've got some boring news for you that is largely,
+
+4
+00:00:11,439 --> 00:00:15,199
+when people first talk about multi-agents, the simple thing they might mean
+
+5
+00:00:15,199 --> 00:00:19,600
+is that it's perfectly simple, of course, to start multiple Claudes.
+
+6
+00:00:19,600 --> 00:00:23,200
+So we've got Claude running right here and I can press this plus button.
+
+7
+00:00:23,200 --> 00:00:28,079
+I'm now in a new terminal and I can just type Claude and launch a second Claude.
+
+8
+00:00:28,079 --> 00:00:33,119
+And I can press the plus button and I can type Claude and launch a third Claude.
+
+9
+00:00:33,119 --> 00:00:36,240
+And now we have three different Claude prompts.
+
+10
+00:00:36,240 --> 00:00:39,200
+And in one of them, I could say, build the front end.
+
+11
+00:00:39,200 --> 00:00:41,520
+One of them I could say, build the back end.
+
+12
+00:00:41,520 --> 00:00:43,759
+And one of them I could say, build the tests.
+
+13
+00:00:43,759 --> 00:00:47,360
+And as long as I've done a good enough job of identifying the boundaries
+
+14
+00:00:47,360 --> 00:00:52,240
+and how they'll work together, they would probably just all work in parallel.
+
+15
+00:00:52,240 --> 00:00:55,439
+It's a great example of the dangers of chaos
+
+16
+00:00:55,439 --> 00:00:59,279
+because this plan document is not yet well enough fleshed out.
+
+17
+00:00:59,279 --> 00:01:01,520
+You might want to try this just as a challenge.
+
+18
+00:01:01,520 --> 00:01:06,239
+If you kicked off these three as three separate agents running,
+
+19
+00:01:06,239 --> 00:01:10,160
+I think that probably a fiasco would emerge.
+
+20
+00:01:10,160 --> 00:01:13,519
+I just think there's not enough substance on how they would interact
+
+21
+00:01:13,519 --> 00:01:15,919
+and you'd end up with bits that just wouldn't fit together.
+
+22
+00:01:15,919 --> 00:01:18,400
+And the agents wouldn't even know that they're each working on it.
+
+23
+00:01:18,400 --> 00:01:20,559
+So there would be tremendous confusion.
+
+24
+00:01:21,040 --> 00:01:24,319
+So there's not enough kind of fabric in place
+
+25
+00:01:24,319 --> 00:01:27,040
+for us to just kick off three different agents.
+
+26
+00:01:27,040 --> 00:01:28,639
+But it gives you a sense of what it means
+
+27
+00:01:28,639 --> 00:01:31,199
+and we can certainly do some small experiments in this front.
+
+28
+00:01:31,199 --> 00:01:33,599
+But I'm actually going to take this down a different direction,
+
+29
+00:01:33,599 --> 00:01:35,519
+which is totally optional.
+
+30
+00:01:35,519 --> 00:01:38,800
+You can do everything I'm about to do using Claude code,
+
+31
+00:01:38,800 --> 00:01:42,239
+but I thought I'd shake it up a bit and show you an example
+
+32
+00:01:42,239 --> 00:01:46,959
+of using a different coding agent as one of our other agents.
+
+33
+00:01:46,959 --> 00:01:49,279
+In fact, I thought I would use Codex.
+
+34
+00:01:49,279 --> 00:01:53,040
+And we've experienced Codex, of course, as an IDE plugin.
+
+35
+00:01:53,040 --> 00:01:56,800
+You can still see the Codex icon up there where it started out.
+
+36
+00:01:57,440 --> 00:02:01,120
+We are going to use Codex as a CLI,
+
+37
+00:02:01,120 --> 00:02:03,760
+the equivalent that OpenAI has to Claude code,
+
+38
+00:02:03,760 --> 00:02:05,279
+which is how Codex began.
+
+39
+00:02:05,279 --> 00:02:07,360
+So I'm going to quickly install it now
+
+40
+00:02:07,360 --> 00:02:10,160
+and show you how we can use it as an alternative
+
+41
+00:02:10,160 --> 00:02:12,639
+or really to collaborate with Claude code.
+
+42
+00:02:12,639 --> 00:02:16,800
+So this is the Codex CLI homepage
+
+43
+00:02:16,800 --> 00:02:18,559
+that you get if you just Google Codex CLI,
+
+44
+00:02:18,559 --> 00:02:20,320
+but I'll put it in the course resources.
+
+45
+00:02:20,320 --> 00:02:22,080
+And there's installation instructions.
+
+46
+00:02:22,080 --> 00:02:23,679
+And you can do it with NPM,
+
+47
+00:02:23,679 --> 00:02:25,600
+or if you're on a Mac, you can do it with Homebrew.
+
+48
+00:02:25,600 --> 00:02:28,880
+I'm just going to use NPM because I'm used to it.
+
+49
+00:02:28,880 --> 00:02:34,080
+And then you run it with just running the command Codex. That's it.
+
+50
+00:02:34,080 --> 00:02:35,759
+Okay, let me come back here.
+
+51
+00:02:35,759 --> 00:02:37,919
+I'm going to click here and run that command.
+
+52
+00:02:37,919 --> 00:02:39,600
+And you might have to press the plus button
+
+53
+00:02:39,600 --> 00:02:42,000
+if you need a new terminal outside Claude code,
+
+54
+00:02:42,000 --> 00:02:43,360
+because I'm not sure that Claude code
+
+55
+00:02:43,360 --> 00:02:45,279
+would understand that command. But here we go.
+
+56
+00:02:45,279 --> 00:02:48,320
+I'm installing Codex right now.
+
+57
+00:02:48,320 --> 00:02:49,919
+Have that installed.
+
+58
+00:02:49,919 --> 00:02:50,800
+And you can also use
+
+59
+00:02:50,800 --> 00:02:53,039
+any of the other installation techniques.
+
+60
+00:02:53,039 --> 00:02:54,960
+Looks like mine was already installed.
+
+61
+00:02:54,960 --> 00:02:58,720
+And now I'm going to run it with the command Codex.
+
+62
+00:02:58,720 --> 00:03:00,160
+Codex, here we go.
+
+63
+00:03:00,160 --> 00:03:02,240
+And I think first time it might make me log in.
+
+64
+00:03:02,800 --> 00:03:03,919
+It doesn't, I'm already,
+
+65
+00:03:03,919 --> 00:03:04,880
+so the first time it might,
+
+66
+00:03:04,880 --> 00:03:06,720
+it might take you through that usual
+
+67
+00:03:06,720 --> 00:03:09,039
+OAuth flow of signing into OpenAI,
+
+68
+00:03:09,039 --> 00:03:10,639
+but mine already knows I'm logged in.
+
+69
+00:03:11,440 --> 00:03:14,559
+I'm going to say, yes, Codex can work in this folder.
+
+70
+00:03:15,360 --> 00:03:16,160
+And there we go.
+
+71
+00:03:16,160 --> 00:03:19,039
+We are in to Codex. Very nice.
+
+72
+00:03:20,320 --> 00:03:22,080
+Try the new Codex app, apparently.
+
+73
+00:03:22,080 --> 00:03:22,800
+That's something to try,
+
+74
+00:03:22,800 --> 00:03:24,160
+but we're not going to try that.
+
+75
+00:03:24,160 --> 00:03:26,479
+I'm going to open a new screen like this.
+
+76
+00:03:26,479 --> 00:03:27,919
+And now check this out.
+
+77
+00:03:27,919 --> 00:03:30,720
+I'm going to write just a normal shell command.
+
+78
+00:03:30,720 --> 00:03:33,279
+I'm going to call a program that's called Codex
+
+79
+00:03:34,000 --> 00:03:35,279
+with the command exec.
+
+80
+00:03:35,839 --> 00:03:37,279
+And that is a way of just saying,
+
+81
+00:03:37,279 --> 00:03:39,679
+I want you to run this prompt, do it.
+
+82
+00:03:39,679 --> 00:03:41,199
+And that prompt is going to be,
+
+83
+00:03:41,199 --> 00:03:48,720
+please review the file planning slash plan.md
+
+84
+00:03:49,440 --> 00:03:59,279
+and write your feedback to planning slash review.md.
+
+85
+00:03:59,279 --> 00:04:02,160
+That is going to be my Codex exec.
+
+86
+00:04:02,160 --> 00:04:05,279
+And I press enter and off it goes.
+
+87
+00:04:05,279 --> 00:04:09,199
+This is now launching Codex as like its own thing,
+
+88
+00:04:09,839 --> 00:04:10,880
+running this review.
+
+89
+00:04:11,440 --> 00:04:15,119
+And it's going to then write the file to review.md.
+
+90
+00:04:15,119 --> 00:04:18,320
+And this is clearly a sense that you're getting right now
+
+91
+00:04:18,320 --> 00:04:20,798
+of having a different agent.
+
+92
+00:04:20,798 --> 00:04:22,559
+Now, it doesn't need to be Codex.
+
+93
+00:04:22,559 --> 00:04:24,880
+It could also be Claude that you could just run.
+
+94
+00:04:24,880 --> 00:04:26,480
+Of course, you can have multiple windows.
+
+95
+00:04:26,480 --> 00:04:28,000
+You can have Claude running twice.
+
+96
+00:04:28,000 --> 00:04:29,440
+But it's kind of cool that we can have
+
+97
+00:04:29,440 --> 00:04:31,279
+a different agent altogether.
+
+98
+00:04:31,279 --> 00:04:34,640
+And since I happen to have plans for both, I've got that.
+
+99
+00:04:34,640 --> 00:04:36,559
+And it's just written review.md.
+
+100
+00:04:36,559 --> 00:04:37,359
+It was very quick.
+
+101
+00:04:37,359 --> 00:04:40,799
+Let's open this up and review feedback planning plan.md.
+
+102
+00:04:41,359 --> 00:04:44,000
+And it's got all sorts of stuff in here.
+
+103
+00:04:44,000 --> 00:04:44,720
+It was very quick.
+
+104
+00:04:46,320 --> 00:04:47,600
+What's that last one I just saw?
+
+105
+00:04:48,160 --> 00:04:50,559
+Massive API refers to Polygon IO,
+
+106
+00:04:50,559 --> 00:04:51,839
+but the name is a placeholder.
+
+107
+00:04:51,839 --> 00:04:54,239
+That seems like a bit of a poor piece of feedback there.
+
+108
+00:04:54,239 --> 00:04:56,880
+This is Codex 5.3. We expect more.
+
+109
+00:04:57,839 --> 00:05:00,239
+So interesting stuff.
+
+110
+00:05:00,239 --> 00:05:02,559
+But this really gives you a sense
+
+111
+00:05:02,559 --> 00:05:06,799
+that we can have a powerful model like Codex
+
+112
+00:05:06,799 --> 00:05:11,359
+be running based on a shell command as a separate agent.
+
+113
+00:05:11,359 --> 00:05:15,679
+And this opens the door to lots of new possibilities
+
+114
+00:05:15,679 --> 00:05:17,839
+for us as we will explore.
+
+115
+00:05:17,839 --> 00:05:20,239
+OK, it's time for subagents.
+
+116
+00:05:20,239 --> 00:05:22,559
+A big topic starts now.
+
+117
+00:05:22,559 --> 00:05:25,040
+We've already experienced subagents a bunch of times.
+
+118
+00:05:25,040 --> 00:05:26,640
+First of all, just using Claude Code,
+
+119
+00:05:26,640 --> 00:05:29,359
+it comes with a lot of subagents built in.
+
+120
+00:05:29,359 --> 00:05:32,239
+There's like an explore one and a plan one.
+
+121
+00:05:32,239 --> 00:05:34,480
+It's something which can take on a task,
+
+122
+00:05:34,480 --> 00:05:37,519
+run with the task in a separate context
+
+123
+00:05:37,519 --> 00:05:41,920
+so that this doesn't pollute the context of the main Claude Code,
+
+124
+00:05:41,920 --> 00:05:44,079
+do the task, return the response,
+
+125
+00:05:44,079 --> 00:05:46,239
+and that goes back into the main Claude Code.
+
+126
+00:05:46,239 --> 00:05:48,640
+And there's like one for exploring file systems
+
+127
+00:05:48,640 --> 00:05:50,959
+as it builds the code base, planning one,
+
+128
+00:05:50,959 --> 00:05:51,839
+a bunch of others.
+
+129
+00:05:51,839 --> 00:05:53,600
+You see them kick off from time to time.
+
+130
+00:05:53,600 --> 00:05:56,559
+They sometimes print with a different color in its trace,
+
+131
+00:05:56,559 --> 00:05:58,000
+and you see them doing their thing,
+
+132
+00:05:58,000 --> 00:06:01,040
+and then they return back their information. Very common.
+
+133
+00:06:01,040 --> 00:06:03,760
+Sometimes they use cheaper models like Haiku
+
+134
+00:06:03,760 --> 00:06:07,760
+so that they're faster and cost less to carry out their tasks.
+
+135
+00:06:07,760 --> 00:06:10,079
+So it's great for off-boarding context,
+
+136
+00:06:10,079 --> 00:06:12,559
+faster, cheaper, and so on.
+
+137
+00:06:12,559 --> 00:06:13,920
+But context is the big one.
+
+138
+00:06:13,920 --> 00:06:15,440
+And also for parallelizing things
+
+139
+00:06:15,440 --> 00:06:17,519
+because they can run in parallel.
+
+140
+00:06:17,519 --> 00:06:19,679
+We've also experienced subagents
+
+141
+00:06:19,679 --> 00:06:21,359
+when we use some of the plugins
+
+142
+00:06:21,359 --> 00:06:25,279
+because plugins can come with subagent definitions built in,
+
+143
+00:06:25,279 --> 00:06:27,440
+and we saw that with rough loops, I think,
+
+144
+00:06:27,440 --> 00:06:29,119
+and with a couple of others.
+
+145
+00:06:29,119 --> 00:06:33,279
+So we've experienced them as we've gone along this journey.
+
+146
+00:06:33,359 --> 00:06:35,200
+But now we're going to build our own.
+
+147
+00:06:35,200 --> 00:06:36,959
+And we'll start by going back to Cloud Code.
+
+148
+00:06:36,959 --> 00:06:39,200
+I'm going to show you, you can type slash agents
+
+149
+00:06:39,760 --> 00:06:42,880
+to have a look at the different agent setups.
+
+150
+00:06:44,000 --> 00:06:45,600
+You can see there that first of all,
+
+151
+00:06:45,600 --> 00:06:48,480
+there is a create new agent option
+
+152
+00:06:48,480 --> 00:06:51,279
+that will guide you through the process of setting up an agent.
+
+153
+00:06:51,279 --> 00:06:53,040
+But again, it just turns out to be files,
+
+154
+00:06:53,040 --> 00:06:55,279
+and we can just create the files ourselves because we're pros.
+
+155
+00:06:55,279 --> 00:06:56,959
+But you can also go through the menu.
+
+156
+00:06:56,959 --> 00:06:59,839
+Then you'll see that there is an agent that came with a plugin,
+
+157
+00:06:59,839 --> 00:07:02,320
+the code simplifier agent,
+
+158
+00:07:02,320 --> 00:07:05,440
+because we selected that plugin at some point.
+
+159
+00:07:05,440 --> 00:07:07,200
+And then there's the built-in agents.
+
+160
+00:07:07,200 --> 00:07:09,200
+You can see here a general purpose one.
+
+161
+00:07:09,200 --> 00:07:11,600
+I think I mentioned the explore one that uses Haiku.
+
+162
+00:07:12,160 --> 00:07:15,279
+And yeah, you can see some of these built-in agents,
+
+163
+00:07:15,279 --> 00:07:17,760
+and you probably already experienced them running.
+
+164
+00:07:17,760 --> 00:07:20,079
+But we're now going to create our own.
+
+165
+00:07:20,079 --> 00:07:22,480
+You could do that by using this menu option,
+
+166
+00:07:22,480 --> 00:07:23,600
+create new agent.
+
+167
+00:07:23,600 --> 00:07:24,480
+We're not going to do that.
+
+168
+00:07:24,480 --> 00:07:26,559
+We're going to create our own by setting up the file.
+
+169
+00:07:26,559 --> 00:07:28,720
+And there are multiple places you can go to
+
+170
+00:07:28,720 --> 00:07:30,559
+to create your agents.
+
+171
+00:07:31,040 --> 00:07:33,440
+You can do that in the .cloud project folder,
+
+172
+00:07:33,440 --> 00:07:36,079
+as we will, as we've been using for commands and skills.
+
+173
+00:07:36,079 --> 00:07:38,480
+You can do it in your home directory .cloud
+
+174
+00:07:38,480 --> 00:07:41,279
+to have a sub-agent that you can use in any of your projects,
+
+175
+00:07:41,279 --> 00:07:43,600
+but that you won't manage in a project code base.
+
+176
+00:07:43,600 --> 00:07:45,920
+I don't think we'll do that, but you can.
+
+177
+00:07:45,920 --> 00:07:49,600
+You can actually pass them in when you start up Cloud.
+
+178
+00:07:49,600 --> 00:07:52,079
+You can run Cloud and then create an agent
+
+179
+00:07:52,079 --> 00:07:53,519
+with some flags you pass in,
+
+180
+00:07:53,519 --> 00:07:55,359
+which is a pretty specialized thing.
+
+181
+00:07:55,359 --> 00:07:56,320
+We're not going to do that.
+
+182
+00:07:57,040 --> 00:07:59,440
+And you can also use them as part of plugins.
+
+183
+00:07:59,440 --> 00:08:01,359
+If you create your own plugin,
+
+184
+00:08:01,359 --> 00:08:02,799
+and we probably will do that.
+
+185
+00:08:02,799 --> 00:08:04,959
+But for now, let's just go into Cloud,
+
+186
+00:08:04,959 --> 00:08:08,079
+have a new folder and call it agents.
+
+187
+00:08:08,079 --> 00:08:10,720
+So we now have command skills and agents,
+
+188
+00:08:10,720 --> 00:08:12,239
+which is where we begin.
+
+189
+00:08:12,239 --> 00:08:16,000
+All right, so I'm going to create a new file inside agents
+
+190
+00:08:16,000 --> 00:08:17,040
+and I'm going to call it,
+
+191
+00:08:17,839 --> 00:08:21,920
+let's just call it a reviewer, reviewer.md.
+
+192
+00:08:21,920 --> 00:08:24,640
+This is going to be our reviewer agent.
+
+193
+00:08:24,640 --> 00:08:26,799
+And now we put some stuff in here.
+
+194
+00:08:26,799 --> 00:08:27,920
+Okay, so here we go.
+
+195
+00:08:27,920 --> 00:08:28,959
+I'm going to put in,
+
+196
+00:08:28,959 --> 00:08:30,399
+I'm going to paste in what I just wrote.
+
+197
+00:08:30,399 --> 00:08:32,080
+So we're going to call this thing reviewer.
+
+198
+00:08:32,640 --> 00:08:36,080
+The description, carry out a comprehensive review when requested.
+
+199
+00:08:36,080 --> 00:08:39,280
+And now you can specify tools and a model.
+
+200
+00:08:39,280 --> 00:08:40,719
+The tools that it has access to
+
+201
+00:08:40,719 --> 00:08:42,239
+and the model that should be used,
+
+202
+00:08:42,239 --> 00:08:43,200
+but you don't need to.
+
+203
+00:08:43,200 --> 00:08:45,280
+And if you don't, then it gets access to whatever
+
+204
+00:08:45,280 --> 00:08:47,280
+the thing that kicks it off has.
+
+205
+00:08:47,280 --> 00:08:48,559
+It like inherits.
+
+206
+00:08:48,559 --> 00:08:49,440
+And that's what we'll do.
+
+207
+00:08:49,440 --> 00:08:51,359
+We're just going to keep this super simple.
+
+208
+00:08:51,359 --> 00:08:53,599
+You review the file plan.md
+
+209
+00:08:53,599 --> 00:08:56,400
+and you write your feedback to planning review.md.
+
+210
+00:08:56,400 --> 00:08:58,960
+This could equally be a command or a skill.
+
+211
+00:08:59,679 --> 00:09:01,599
+We're calling it an agent
+
+212
+00:09:01,599 --> 00:09:03,359
+and we'll compare the differences.
+
+213
+00:09:03,359 --> 00:09:05,119
+And let me delete this file here
+
+214
+00:09:05,119 --> 00:09:06,799
+so that that's no longer there.
+
+215
+00:09:06,799 --> 00:09:08,159
+It's got the answer.
+
+216
+00:09:08,159 --> 00:09:10,239
+Okay, that is our agent.
+
+217
+00:09:10,239 --> 00:09:12,880
+Okay, so I'm now going to close out of Cloud Code,
+
+218
+00:09:12,880 --> 00:09:14,000
+bring it back in again.
+
+219
+00:09:14,640 --> 00:09:18,239
+I will go slash agents to look at the agents.
+
+220
+00:09:18,239 --> 00:09:20,880
+And you'll see that the reviewer agent is there.
+
+221
+00:09:20,880 --> 00:09:24,400
+We have a reviewer agent. Cool. All right.
+
+222
+00:09:24,400 --> 00:09:27,440
+So you don't call an agent with a slash command.
+
+223
+00:09:27,440 --> 00:09:28,640
+That's not how it works.
+
+224
+00:09:29,440 --> 00:09:31,599
+It's not like a, sorry, like that, didn't it?
+
+225
+00:09:31,599 --> 00:09:33,760
+It's not like this reviewer in there.
+
+226
+00:09:33,760 --> 00:09:38,320
+I'm going to say, use the reviewer agent
+
+227
+00:09:38,320 --> 00:09:42,320
+to carry out a code, a review.
+
+228
+00:09:43,599 --> 00:09:44,559
+Let's just do that.
+
+229
+00:09:44,559 --> 00:09:45,440
+It's spelled review wrong,
+
+230
+00:09:45,440 --> 00:09:47,119
+but hopefully that won't cause any problems.
+
+231
+00:09:47,119 --> 00:09:51,520
+It should now be launching our new review agent
+
+232
+00:09:51,520 --> 00:09:53,200
+and be doing that. There we go.
+
+233
+00:09:53,200 --> 00:09:54,719
+Carry out a comprehensive review.
+
+234
+00:09:55,760 --> 00:09:59,440
+You can see it's the reviewer agent right there. That's cool.
+
+235
+00:09:59,440 --> 00:10:00,400
+It's doing its thing.
+
+236
+00:10:01,119 --> 00:10:02,479
+We will let it do its thing.
+
+237
+00:10:02,479 --> 00:10:04,000
+I will see you back here in a second.
+
+238
+00:10:04,000 --> 00:10:05,599
+And that completed successfully.
+
+239
+00:10:05,599 --> 00:10:06,400
+And it all happened.
+
+240
+00:10:06,400 --> 00:10:08,000
+It was written to review.md.
+
+241
+00:10:08,000 --> 00:10:10,000
+And as you were hopefully watching yourself,
+
+242
+00:10:10,000 --> 00:10:12,799
+it was the reviewer agent that carried it out.
+
+243
+00:10:12,799 --> 00:10:14,479
+Actually, I think that what I should have said here
+
+244
+00:10:14,479 --> 00:10:16,400
+is use the reviewer sub-agent.
+
+245
+00:10:16,400 --> 00:10:18,000
+I don't know how much that matters,
+
+246
+00:10:18,000 --> 00:10:20,960
+but that is the suggested way of doing it.
+
+247
+00:10:21,679 --> 00:10:24,159
+Actually use the word sub-agent to tell Claude
+
+248
+00:10:24,159 --> 00:10:25,599
+that that's what you want it to do.
+
+249
+00:10:25,599 --> 00:10:26,719
+But generally speaking,
+
+250
+00:10:26,719 --> 00:10:28,479
+one of the big distinctions
+
+251
+00:10:28,479 --> 00:10:29,520
+with what we were doing before,
+
+252
+00:10:29,520 --> 00:10:30,799
+there's a couple.
+
+253
+00:10:30,799 --> 00:10:34,159
+One of them is that you can't directly call it.
+
+254
+00:10:34,159 --> 00:10:36,239
+You have to let it decide itself
+
+255
+00:10:36,239 --> 00:10:38,880
+whether or not it should use the sub-agent.
+
+256
+00:10:38,880 --> 00:10:41,280
+And secondly, that that work that happened
+
+257
+00:10:41,280 --> 00:10:44,559
+to go through, analyze, think, read the file,
+
+258
+00:10:44,559 --> 00:10:46,479
+that all happened in a sub-agent
+
+259
+00:10:46,479 --> 00:10:49,679
+outside the context of the main agent,
+
+260
+00:10:49,679 --> 00:10:52,400
+allowing us to efficiently divvy up the task.
+
+261
+00:10:52,400 --> 00:10:54,159
+It allowed us to frame a prompt
+
+262
+00:10:54,159 --> 00:10:55,359
+for a different sub-agent
+
+263
+00:10:55,359 --> 00:10:58,239
+and also keep that context isolated.
+
+264
+00:10:58,239 --> 00:11:00,000
+Those are some of the big advantages.
+
+265
+00:11:00,000 --> 00:11:01,280
+And we'll go through more of them later.
+
+266
+00:11:01,919 --> 00:11:03,919
+And that whole file has been written here
+
+267
+00:11:03,919 --> 00:11:06,400
+to review.md that we can open up.
+
+268
+00:11:06,400 --> 00:11:09,280
+And this is a project review that's got through.
+
+269
+00:11:09,280 --> 00:11:12,000
+Oh, there's a critical security issue.
+
+270
+00:11:12,880 --> 00:11:17,200
+This often seems to happen with the sub-agents.
+
+271
+00:11:17,200 --> 00:11:19,520
+I think we experienced this ourselves before.
+
+272
+00:11:19,520 --> 00:11:21,599
+This fact that the sub-agents tend to think
+
+273
+00:11:21,599 --> 00:11:22,559
+that there's an issue
+
+274
+00:11:22,559 --> 00:11:25,359
+that .emv isn't in .gitignore,
+
+275
+00:11:26,000 --> 00:11:29,359
+but the key is visible in the repository.
+
+276
+00:11:29,359 --> 00:11:31,919
+I suppose that is a security issue in some ways,
+
+277
+00:11:31,919 --> 00:11:32,960
+but only with people
+
+278
+00:11:32,960 --> 00:11:34,640
+who have direct repository access,
+
+279
+00:11:34,640 --> 00:11:35,760
+which is only me.
+
+280
+00:11:35,760 --> 00:11:37,200
+Anyways, this happened.
+
+281
+00:11:37,200 --> 00:11:38,239
+We've got our review.
+
+282
+00:11:38,239 --> 00:11:39,840
+The sub-agent worked.
+
+283
+00:11:39,840 --> 00:11:41,440
+That is very interesting.
+
+284
+00:11:41,440 --> 00:11:42,559
+What else can we do?
+
+285
+00:11:42,559 --> 00:11:44,320
+You know exactly what I want to do.
+
+286
+00:11:44,320 --> 00:11:46,559
+I want to have Codex be the thing
+
+287
+00:11:46,559 --> 00:11:47,599
+that does the review.
+
+288
+00:11:47,599 --> 00:11:49,359
+I want to have a different AI.
+
+289
+00:11:49,919 --> 00:11:52,719
+Let's give that a shot in the next video.
+

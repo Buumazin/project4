@@ -1,0 +1,576 @@
+1
+00:00:00,000 --> 00:00:08,079
+Okay it's time to see what Codex did in 15 minutes when equipped with the same prompt as the others
+
+2
+00:00:08,079 --> 00:00:16,479
+but first let's do a quick recap shall we not let me begin by showing you again the GSD not the
+
+3
+00:00:16,479 --> 00:00:20,399
+first one we did it was it was the second one we did I think but GSD which was the most thorough
+
+4
+00:00:20,399 --> 00:00:25,760
+five hours five hours in the making this was what we got this quite professional looking one a bit
+
+5
+00:00:25,760 --> 00:00:32,000
+less flashy than some of the others let's just do a quick buy three apple let's see what happens
+
+6
+00:00:32,000 --> 00:00:36,240
+there it appears now that I understand this funny thing that confused me about this chart I guess we
+
+7
+00:00:36,240 --> 00:00:39,919
+should try clicking here now that doesn't make any difference I was wondering if that was going
+
+8
+00:00:39,919 --> 00:00:45,439
+to make it appear on the chart here uh oh look it changes the title up there so maybe it is working
+
+9
+00:00:45,439 --> 00:00:50,959
+we just have to leave it a bit perhaps maybe that's how that's meant to work uh and uh let's
+
+10
+00:00:50,959 --> 00:01:01,119
+just try here buy three shares of goog and make sure that that works uh and it's thinking hopefully
+
+11
+00:01:01,119 --> 00:01:05,680
+that's going to work yeah executed it's got a very nice looking thing there and there's some google
+
+12
+00:01:05,680 --> 00:01:13,360
+okay that was number one and now I want to show you the claude agents one check this one out
+
+13
+00:01:13,360 --> 00:01:19,040
+it looks really nice uh I like the way that all of this flashes like this and if I click there
+
+14
+00:01:19,040 --> 00:01:23,120
+yeah okay so I guess I just didn't get this the first time I saw the user interface because
+
+15
+00:01:23,120 --> 00:01:27,680
+you click here and this updates and I think you have to wait a while for this chart to start
+
+16
+00:01:27,680 --> 00:01:35,279
+appearing uh but I totally didn't didn't realize that um and uh we can say um here please uh
+
+17
+00:01:36,400 --> 00:01:46,319
+purchase one share of jpm see what happens there there we go it's bought one jp morgan
+
+18
+00:01:46,319 --> 00:01:53,760
+there we have it very nice uh okay so this this one here is the claude agents one my favorite one
+
+19
+00:01:53,760 --> 00:01:59,360
+to work with I like the user interface as well I'm not sure what you think looks very nice now
+
+20
+00:01:59,360 --> 00:02:04,239
+we'll switch to the next one which is the gas town one we just saw this they all look quite
+
+21
+00:02:04,239 --> 00:02:08,880
+similar uh and this is the interaction that we already just had just to flip through them again
+
+22
+00:02:08,880 --> 00:02:15,839
+uh this is I'm getting confused but this is gsd claude agents and then this one is gas town those
+
+23
+00:02:15,839 --> 00:02:20,000
+are the three it's hard to keep it together they look very similar and of course not a big surprise
+
+24
+00:02:20,000 --> 00:02:26,399
+it was opus 4.6 building them all just orchestrated differently and with the first one taking five
+
+25
+00:02:26,399 --> 00:02:33,520
+hours that maybe it overworked it um okay and now I'm going to show you kodak's uh different
+
+26
+00:02:33,520 --> 00:02:38,880
+orchestration and a different look here we have it wow it does look different I mean it has a lot
+
+27
+00:02:38,880 --> 00:02:47,119
+of similarities it has the same kind of uh the same kind of uh cut black look and the same flashing
+
+28
+00:02:47,119 --> 00:02:52,399
+thing over here but I gotta tell you I I think this is really nice it might be because sometimes
+
+29
+00:02:52,399 --> 00:02:57,279
+a change just looks better you know but I think this looks great I love the the effect of these
+
+30
+00:02:57,279 --> 00:03:01,919
+here they look really professional really sleek this user interface just looks very very nice
+
+31
+00:03:02,399 --> 00:03:09,279
+uh and uh so I love it it's very similar but this chart is clearly improved uh and yeah now when I
+
+32
+00:03:09,279 --> 00:03:14,720
+flick through I see I see it changing very nice indeed uh really impressive I love it and let's
+
+33
+00:03:14,720 --> 00:03:23,600
+ask it to do a trade let's uh buy one share of meta let's see what happens order place to buy
+
+34
+00:03:23,600 --> 00:03:29,039
+one share of meta and there's meta and uh it's happening so it's very nice I like the way the
+
+35
+00:03:29,039 --> 00:03:34,399
+portfolio up there uh updates so so fast are they all doing that yes they are of course they are oh
+
+36
+00:03:34,399 --> 00:03:41,039
+but not this one check that out that looks like a small bug that we have there with my my favorite
+
+37
+00:03:41,039 --> 00:03:47,119
+one lord agents maybe not so good after all and is this one updating no nor is gsd so the only
+
+38
+00:03:47,119 --> 00:03:53,199
+ones that were able to keep the portfolio oh no look there the portfolio's gone static uh so it
+
+39
+00:03:53,199 --> 00:03:59,679
+looks like this this is something that that openai's codex won on that front it has something
+
+40
+00:03:59,679 --> 00:04:05,839
+really nice there so some great implementations to my surprise I've got to tell you that actually
+
+41
+00:04:05,839 --> 00:04:14,399
+the codex implementation codex 5.3 this is uh is perhaps my personal winner a late breaking surprise
+
+42
+00:04:14,399 --> 00:04:21,760
+and this is the the only one that didn't um the the that didn't use uh the uh we didn't have the
+
+43
+00:04:21,760 --> 00:04:26,559
+skill so we didn't give it the extra skill to know how to use cerebras although it seems to
+
+44
+00:04:26,559 --> 00:04:32,160
+figure everything out um and it's uh yeah the one that just took 15 minutes it was the fastest to
+
+45
+00:04:32,160 --> 00:04:37,359
+build and it came up with perhaps perhaps in my opinion the best outcome but you should tell me
+
+46
+00:04:37,359 --> 00:04:44,079
+what you think your best outcome is uh please put your notes uh in the in the chat let me know what
+
+47
+00:04:44,079 --> 00:04:49,440
+you think um and hopefully you're experimenting with this yourself and here I have to show you
+
+48
+00:04:49,519 --> 00:04:55,679
+one more time the final results this is the codex version but you'll see something's different here
+
+49
+00:04:55,679 --> 00:04:59,279
+you'll see first of all everything looks quite green and secondly you'll see that there's not
+
+50
+00:04:59,279 --> 00:05:03,440
+much going on it doesn't appear to be flashing just every so often and there's a few reasons
+
+51
+00:05:03,440 --> 00:05:12,480
+for that one of them is that I have just switched to using the true polygon now massive market data
+
+52
+00:05:12,559 --> 00:05:20,000
+so that this is actually showing real live market data this is the real stock price of JP Morgan
+
+53
+00:05:20,000 --> 00:05:25,760
+right now the reason it's all a bit green is that this is after hours at the moment it is just past
+
+54
+00:05:25,760 --> 00:05:30,079
+trading cut off so there's not much happening there's some after hours activity which is why
+
+55
+00:05:30,079 --> 00:05:34,079
+there are occasional changes if we were during the middle of the trading day you would see more
+
+56
+00:05:34,079 --> 00:05:40,320
+action but it's pretty cool that you're looking at real stock prices here this is now the actual
+
+57
+00:05:40,320 --> 00:05:46,720
+platform that is showing a true market data simulator with the real results coming through
+
+58
+00:05:46,720 --> 00:05:52,720
+and it wasn't just a matter of changing the the putting in the polygon the massive key because it
+
+59
+00:05:52,720 --> 00:05:57,760
+didn't work first time because the code that Claude wrote didn't actually work immediately it
+
+60
+00:05:57,760 --> 00:06:04,000
+had a wrong hard-coded key in there and I told codex codex found the problem fixed it and then
+
+61
+00:06:04,000 --> 00:06:08,239
+codex told me hey you realize it's after trading hours so it's going to be a bit static there'll
+
+62
+00:06:08,239 --> 00:06:14,480
+be a bit of after hours movement and of course codex was exactly right and so in conclusion what
+
+63
+00:06:14,480 --> 00:06:20,799
+you're looking at really is a kind of modern day simulated trading environment a modern
+
+64
+00:06:20,799 --> 00:06:28,799
+Bloomberg-esque terminal with a position heat map with an AI chat with real live market data that's
+
+65
+00:06:28,799 --> 00:06:36,399
+just flashing occasionally as after hours trading activity occurs and it's pretty impressive all in
+
+66
+00:06:36,399 --> 00:06:42,239
+all all of these solutions are pretty impressive but for me as it happens whilst as you can probably
+
+67
+00:06:42,239 --> 00:06:48,239
+tell Claude Code is my favorite platform I love the tooling I will say that on this occasion at
+
+68
+00:06:48,239 --> 00:06:56,160
+least I believe that codex emerges as the leader of the pack but wait there's more there's always
+
+69
+00:06:56,160 --> 00:07:01,760
+one more thing and here is the one more thing let's let's I'm back in a terminal again let's go
+
+70
+00:07:01,839 --> 00:07:07,119
+sprite list to see our list of sprites that we've got running we've just got the one called
+
+71
+00:07:07,119 --> 00:07:17,200
+finally worker and I do sprite minus s finally worker console to re-attach to that sprite
+
+72
+00:07:17,200 --> 00:07:22,480
+running in the cloud there we are we are now running uh we are using ssh we are we are
+
+73
+00:07:22,480 --> 00:07:27,200
+remoted in to the sprite running in the cloud and I've mentioned a few times something called
+
+74
+00:07:27,920 --> 00:07:32,720
+which is something that you can run on Linux and Mac systems that lets you take a terminal and break
+
+75
+00:07:32,720 --> 00:07:38,559
+it into multiple terminals I'll put the commands and the resources I've set up a tmux so that there
+
+76
+00:07:38,559 --> 00:07:43,679
+are four consoles running and I can reattach to them at any point and I've called it quad because
+
+77
+00:07:43,679 --> 00:07:52,079
+it divides things into quads and now I can type tmux attach minus t quad to reattach to my four
+
+78
+00:07:52,160 --> 00:07:57,359
+terminals that have been running and here they are bam four terminals for you so what do I have
+
+79
+00:07:57,359 --> 00:08:02,480
+here I have four different terminals I can flip between them in tmux by doing ctrl b and then
+
+80
+00:08:02,480 --> 00:08:07,760
+right to go to the right hand one ctrl b and down arrow keys to go to the bottom right ctrl b and
+
+81
+00:08:07,760 --> 00:08:13,119
+left to go over there ctrl b up and I'm back up at the top left again it's very similar to the
+
+82
+00:08:13,119 --> 00:08:18,480
+ctrl b uh up and down that we did when we were moving between tmux sessions before and I've got
+
+83
+00:08:18,480 --> 00:08:25,040
+four different terminal windows the one on the top left is running codex codex in yolo mode the
+
+84
+00:08:25,040 --> 00:08:31,200
+one on the top right is running claude in dangerously skip permissions mode which is it's
+
+85
+00:08:31,200 --> 00:08:37,359
+yolo mode bottom left is another codex I've got two codexes running and the bottom right I'm using
+
+86
+00:08:37,359 --> 00:08:44,239
+for my git workflow to check things in but even is so this is like three different coding agents
+
+87
+00:08:44,239 --> 00:08:51,359
+running but within that the codex on the top left is running codex with sub-agents activated so it
+
+88
+00:08:51,359 --> 00:08:57,760
+can use agents to run multiple things and as well you know claude is able to use claude agent teams
+
+89
+00:08:57,760 --> 00:09:03,200
+so that claude can run a bunch of agents or of course it can also use sub-agents so we've got
+
+90
+00:09:03,200 --> 00:09:08,479
+this kind of ability to have three different kind of heads that we're talking to that can have
+
+91
+00:09:08,559 --> 00:09:15,119
+themselves gangs of agents and I have just been riffing with this for the last couple of hours
+
+92
+00:09:15,119 --> 00:09:21,679
+and I've mostly been doing market data work and and back-end work with codex on the top left and
+
+93
+00:09:21,679 --> 00:09:28,000
+ui stuff with claude on the top right and I've been tracking stuff in markdown files using that
+
+94
+00:09:28,000 --> 00:09:33,520
+best practice I've been keeping things together and they've been making great progress together
+
+95
+00:09:33,520 --> 00:09:38,479
+as a team and it's been quite hard work managing everything going on but I've always been the boss
+
+96
+00:09:38,479 --> 00:09:42,559
+I've just been telling them what to do I've not dug into the code I've just asked them to look
+
+97
+00:09:42,559 --> 00:09:47,840
+at things and occasionally review each other's stuff too so powerful and we've made tons of
+
+98
+00:09:47,840 --> 00:09:53,760
+progress and it's one more time for me to mention to you this thing this this frame of mind you have
+
+99
+00:09:53,760 --> 00:09:59,679
+to be in that you can often make make tons of progress in a short amount of time you feel like
+
+100
+00:09:59,760 --> 00:10:05,280
+you are on fire you've you're 10xing your performance you really are and then you hit
+
+101
+00:10:05,280 --> 00:10:10,799
+like a like a block a roadblock of some sort a bug and and the agents just keep hitting the same
+
+102
+00:10:10,799 --> 00:10:16,080
+problem and can't get their way through it and you find that you spend a lot of time just getting over
+
+103
+00:10:16,080 --> 00:10:21,440
+a small obstacle and you can feel like ah I'm wasting all of my time it's it's uh it's not this
+
+104
+00:10:21,440 --> 00:10:27,760
+10x but you have to keep in mind still even when you factor that in the amount of time that it's
+
+105
+00:10:27,760 --> 00:10:33,359
+taken me to make lots of progress a couple of hours is still multiple times two or three times
+
+106
+00:10:33,359 --> 00:10:40,559
+faster than if I was writing all this myself so never never be surprised when that initial 10x
+
+107
+00:10:40,559 --> 00:10:47,919
+then gets pulled back by some bugs keep in mind it's still a significant net positive so that is
+
+108
+00:10:47,919 --> 00:10:54,400
+my important message to you to keep keep fuel in the tank to be ready to hit problems and expect
+
+109
+00:10:54,400 --> 00:11:00,960
+to spend a lot of your time a large portion of your time carefully reproducing get down the issue
+
+110
+00:11:00,960 --> 00:11:05,919
+let's understand the issue before we fix it make a markdown file explaining the issue
+
+111
+00:11:05,919 --> 00:11:10,640
+and now fix it and now test and prove you fixed it that process and even then discovering the
+
+112
+00:11:10,640 --> 00:11:16,719
+problem's still there no you didn't fix it that can take time be ready for that expect it it is
+
+113
+00:11:16,719 --> 00:11:23,679
+part of the new way okay that's enough preamble it's time for me to reveal to you the fruits of
+
+114
+00:11:23,679 --> 00:11:29,200
+the labor not of me but of these coding agents this is the result of a few coding agents each
+
+115
+00:11:29,200 --> 00:11:38,960
+with multiple sub agents a few hours of work let's see it here i present to you the finally or fin
+
+116
+00:11:38,960 --> 00:11:46,239
+ally trader workstation with live market data courtesy of massive you are looking at a watch
+
+117
+00:11:46,239 --> 00:11:52,640
+list of 60 stock tickers divided into tech financials health care consumer industrials
+
+118
+00:11:52,640 --> 00:11:58,719
+and energy they are being live updated as the markets change you are looking at the live ticker
+
+119
+00:11:58,719 --> 00:12:05,520
+of apple on the display there you are looking at the portfolio pnl and our heat map and the llm chat
+
+120
+00:12:05,520 --> 00:12:12,479
+this this is our trader workstation let's agree this is sensational and it will come as no surprise
+
+121
+00:12:12,479 --> 00:12:18,400
+to you to see that now i can click on one of these tickers and zoom in on it and see on the right the
+
+122
+00:12:18,400 --> 00:12:23,119
+main chart of what's going on there is netflix is it appears to be having a bit of a journey
+
+123
+00:12:23,119 --> 00:12:30,000
+downwards there uh so you see everything that is happening on this dashboard absolutely amazing
+
+124
+00:12:30,000 --> 00:12:35,039
+and there's one more little trick to show you claude added this little feature uh which i will
+
+125
+00:12:35,039 --> 00:12:41,520
+show you now which is this symbol up here in case you are somewhat tired of these slight gamer style
+
+126
+00:12:41,520 --> 00:12:48,159
+dark mode ui's you can flip it to light mode check that out it just looks so fresh and
+
+127
+00:12:48,159 --> 00:12:55,679
+professional and clean it's like wow and flip it back to dark mode again if if that's your preferred
+
+128
+00:12:55,679 --> 00:13:04,320
+style light mode and dark mode done just like that i am floored by this it is just fantastic
+
+129
+00:13:04,320 --> 00:13:08,559
+i kid you not if you'd shown me this a couple of years ago and asked me how long it would take to
+
+130
+00:13:08,559 --> 00:13:13,359
+build this i don't know what you'd said i probably said this would take me a month or two i would
+
+131
+00:13:13,359 --> 00:13:18,799
+have charged a fair amount of money for this uh even even though it's i'd still argue it's probably
+
+132
+00:13:18,799 --> 00:13:24,479
+still a demo app uh in the there aren't there isn't the user login side of it yet and you can't
+
+133
+00:13:24,479 --> 00:13:29,760
+deploy it yet uh those are pretty easy steps now because it's all in a docker container those are
+
+134
+00:13:29,760 --> 00:13:34,559
+just small steps to take this into a proper commercial app so i would probably say this
+
+135
+00:13:34,559 --> 00:13:40,400
+is a month or two worth of work for me and and it would have been a really hard project and it was
+
+136
+00:13:40,400 --> 00:13:47,119
+just super easy it honestly was and hopefully you've got the same kinds of results hopefully
+
+137
+00:13:47,119 --> 00:13:50,559
+you're building that look towards building something like this i'll put in the course
+
+138
+00:13:50,559 --> 00:13:54,960
+resources how you could get of course exactly this code base and see it for yourself but it's
+
+139
+00:13:54,960 --> 00:13:59,840
+much more fun to build it yourself or do something different do something that takes it in a different
+
+140
+00:13:59,840 --> 00:14:06,080
+direction that you like but with a similar wow factor that this has and then by all means
+
+141
+00:14:06,080 --> 00:14:10,320
+add to your agent that it should deploy it deploying a container is relatively easy
+
+142
+00:14:10,320 --> 00:14:13,760
+they'll walk you through the instructions and help you make any decisions you need to make
+
+143
+00:14:13,760 --> 00:14:18,479
+about which which vendor you use and then you can have this live on the internet too
+
+144
+00:14:19,039 --> 00:14:25,039
+just a brilliant project and and just a great capstone finale moment for us
+

@@ -1,0 +1,348 @@
+1
+00:00:00,000 --> 00:00:08,079
+Okay, so we'll start by deleting review.md with its silly.env worry, move that to trash,
+
+2
+00:00:08,079 --> 00:00:14,319
+off it goes, close down these documents, and now we will go back to our agent here and see
+
+3
+00:00:14,319 --> 00:00:19,520
+if we can't improve this. Okay, so I've just pasted in a new version of this called Codex
+
+4
+00:00:19,520 --> 00:00:23,760
+Reviewer. I've also changed the name of the files to give it nice and clean. You carry out a
+
+5
+00:00:23,760 --> 00:00:29,440
+comprehensive review of plan.md when requested using Codex. You are using a different AI agent
+
+6
+00:00:29,440 --> 00:00:34,720
+to carry out a review of the document planning plan.md. You must execute the following shell
+
+7
+00:00:34,720 --> 00:00:40,240
+command to carry out the review. Do not review yourself. I'm being super clear on this. All right,
+
+8
+00:00:40,240 --> 00:00:53,759
+with that, let's launch Claude. Okay, use your Codex-Reviewer sub-agent to carry out a review
+
+9
+00:00:54,319 --> 00:01:03,599
+of planning slash plan.md. That seems very clear. Let's see what happens. Let's see what happens
+
+10
+00:01:03,599 --> 00:01:09,440
+when we do this. It's thinking, it's celebrating, it's called the Codex Reviewer. Is it going to do
+
+11
+00:01:09,440 --> 00:01:17,199
+this? It's reading plan.md itself, but is it going to kick off the bash command? It's going to kick
+
+12
+00:01:17,199 --> 00:01:23,919
+off is run Codex. Let's see Codex exec. That seems good. Yes, we'll let it run that. Okay,
+
+13
+00:01:23,919 --> 00:01:30,639
+Codex is now running. So we are running a sub-agent in Claude Code, and that is launching Codex,
+
+14
+00:01:30,639 --> 00:01:36,879
+which is very much now being run as a sub-agent. It's really cool that we're using a different LLM
+
+15
+00:01:36,879 --> 00:01:46,000
+and a different LLM CLI as part of this process. Feels very sub-agenty. So that's going to happen
+
+16
+00:01:46,000 --> 00:01:51,440
+now. Codex is running in the background. We're going to let this complete and all of the to and
+
+17
+00:01:51,440 --> 00:01:56,480
+fro between the two is not going to pollute the context. And so we're going to get back in a very
+
+18
+00:01:56,480 --> 00:02:02,959
+efficient way, a code review that's just been written to review.md by Codex. And there we go.
+
+19
+00:02:02,959 --> 00:02:09,839
+We've got like a response back. It's got a ton of bits of feedback here. Let's go and have a look
+
+20
+00:02:09,839 --> 00:02:19,600
+at the review. It's got some strengths, that's kind of it. Some risks, gaps. It's concerned about
+
+21
+00:02:19,600 --> 00:02:24,559
+the skill not being defined, but it is defined. That's fine. It's because it was only looking at
+
+22
+00:02:24,559 --> 00:02:31,839
+that file right there. It's concerned about polygon. We're fine with this. And that doesn't
+
+23
+00:02:31,839 --> 00:02:41,279
+seem like a concern to me. Okay. No explicit, that's fine, I think. No authors intended, yes.
+
+24
+00:02:42,080 --> 00:02:50,160
+Pricing model assumptions, that seems fine. Okay. It doesn't know that
+
+25
+00:02:50,160 --> 00:02:56,720
+massive is the new name of polygon IO, obviously. Overall, this is a strong blueprint that should
+
+26
+00:02:56,720 --> 00:03:01,919
+enable parallel execution. Little does it know that it's part of the first sign of that
+
+27
+00:03:01,919 --> 00:03:08,320
+parallel execution. Very nice. So it's kind of cool that we've had this independent,
+
+28
+00:03:09,199 --> 00:03:15,360
+a different LLM go off and do this analysis, and we packaged all that into a sub-agent that ran
+
+29
+00:03:15,360 --> 00:03:19,600
+within Claude Code. It could have been Claude, maybe you just stuck with using Claude for the
+
+30
+00:03:19,600 --> 00:03:25,360
+review, and that's totally good. But that is how we are doing it. Okay. And just to make this a
+
+31
+00:03:25,360 --> 00:03:32,160
+little bit more interesting, I'm going to change this now, not to review planning.md, but to review
+
+32
+00:03:32,160 --> 00:03:38,399
+all changes since the last commit, making this a more general kind of tool. And I'm just going to
+
+33
+00:03:38,399 --> 00:03:43,199
+call it reviewer. And I'm going to use Codex, but you can just use Claude Code for this. You don't
+
+34
+00:03:43,199 --> 00:03:48,559
+need to use Codex. I kind of enjoy doing that to have this idea of a different LLM in the mix,
+
+35
+00:03:48,559 --> 00:03:54,720
+but it's not required. Okay. So I've updated this to be change reviewer.md, change reviewer.
+
+36
+00:03:54,720 --> 00:03:59,360
+And you can see it's going to carry out a comprehensive review of all the changes since
+
+37
+00:03:59,360 --> 00:04:04,720
+the last commit. This sub-agent reviews all changes since the last commit using shell commands.
+
+38
+00:04:04,720 --> 00:04:11,039
+Now, I'm saying, again, that you should do it by using a shell command to call Codex to do the work
+
+39
+00:04:11,039 --> 00:04:16,559
+and not review itself. But you can just tell it to do the code review itself. That will work great.
+
+40
+00:04:16,559 --> 00:04:20,798
+Claude Code would be good at it too. But if you also have Codex, then this is a fun way
+
+41
+00:04:20,798 --> 00:04:26,239
+to have different LLMs collaborate, participate in the process. So that's what I'm doing.
+
+42
+00:04:26,239 --> 00:04:34,000
+I am now going to come out of Claude Code. And then I am going to launch Claude again.
+
+43
+00:04:35,679 --> 00:04:43,200
+And now I'm going to say use, oh, I'm going to delete review.md, delete. And I can't remember
+
+44
+00:04:43,519 --> 00:04:51,519
+what's changed since the last commit, but I'm sure it can. Use the change reviewer sub-agent
+
+45
+00:04:52,720 --> 00:05:02,480
+to review changes since last commit. And we'll see what happens there. But it will hopefully go off,
+
+46
+00:05:02,480 --> 00:05:09,279
+make that shell command call to Codex. And we'll then have an update that will, there we go. You
+
+47
+00:05:09,279 --> 00:05:16,480
+can see it's on, waiting on the exec. And that will then cause a file to be written by Codex,
+
+48
+00:05:16,480 --> 00:05:21,839
+or in your case, perhaps by Claude, that will have that code review. And this is obviously
+
+49
+00:05:21,839 --> 00:05:27,200
+starting to put in place the foundations of what can become multi-agent orchestration.
+
+50
+00:05:27,200 --> 00:05:32,640
+And now it's completed. It did for me indeed use Codex. Maybe you've done it that way as well.
+
+51
+00:05:32,640 --> 00:05:37,200
+And I can see that it's got back the results of the, just looking at the changes
+
+52
+00:05:37,200 --> 00:05:44,399
+since the last commit, which is cool. And yeah, this is a great example of using a sub-agent
+
+53
+00:05:44,399 --> 00:05:49,920
+because the various to-ings and fro-ings about what actually was changed since the last commit
+
+54
+00:05:49,920 --> 00:05:53,839
+and deciding how it's going to look into that, and then ultimately coming up with the findings
+
+55
+00:05:53,839 --> 00:05:58,799
+and then writing them, none of that was put into the main context window. That was all handled by
+
+56
+00:05:58,799 --> 00:06:04,559
+the sub-agent. And even more for us, that was actually handled by Codex off somewhere else,
+
+57
+00:06:04,559 --> 00:06:07,279
+but it didn't need to be. It could have been handled by Claude Code right there. It would
+
+58
+00:06:07,279 --> 00:06:11,920
+still have been kept isolated from the main context, which is the whole point.
+
+59
+00:06:11,920 --> 00:06:17,359
+And we can see it by doing a slash context and looking at what our context window looks like.
+
+60
+00:06:17,359 --> 00:06:22,480
+We've got all of this stuff, but you can see there's basically no real conversation has
+
+61
+00:06:22,480 --> 00:06:27,600
+happened. It's all very clean because that has been taken care of by our sub-agent.
+
+62
+00:06:27,600 --> 00:06:33,679
+So on the list of things we were going to cover today, I had put agent teams, which is a new
+
+63
+00:06:33,679 --> 00:06:38,880
+experimental feature in Claude Code. And I'm going to cheat a bit in that I'm only covering
+
+64
+00:06:38,880 --> 00:06:43,519
+it and I'm telling you that it's to come on day four. We're going to come back to this when we
+
+65
+00:06:43,519 --> 00:06:46,799
+look at agent teams and a number of different constructs. But I did want to explain the
+
+66
+00:06:46,799 --> 00:06:52,079
+difference between agent teams and sub-agents because they are quite different. Sub-agents
+
+67
+00:06:52,079 --> 00:06:57,839
+really are this way to delegate one particular task to another Claude Code that's going to run
+
+68
+00:06:57,839 --> 00:07:03,359
+with an isolated context. And then the results will go back to the main Claude Code that called
+
+69
+00:07:03,359 --> 00:07:08,239
+it. And there is always this relationship that there is a main Claude Code that's just delegating
+
+70
+00:07:08,239 --> 00:07:13,279
+off one task that goes to a sub-agent and back comes the result. It is actually possible for
+
+71
+00:07:13,279 --> 00:07:17,760
+that sub-agent to have a longer term memory in those configuration settings. You can ask it to
+
+72
+00:07:17,760 --> 00:07:22,959
+have like project level memory. But with that caveat, aside from that, it really does feel
+
+73
+00:07:22,959 --> 00:07:28,959
+very much like it's just taking the one task, carrying it out. And that's its purpose in this
+
+74
+00:07:28,959 --> 00:07:34,000
+whole arrangement. Agent teams are a bit different. Agent teams are about assembling a whole kind of
+
+75
+00:07:34,000 --> 00:07:39,600
+group of Claude Codes that all run collaboratively to try and solve a problem. So it is this thing
+
+76
+00:07:39,600 --> 00:07:43,920
+that we're going to be covering about swarms and orchestration when you have potentially many
+
+77
+00:07:43,920 --> 00:07:50,799
+things all on the go at the same time. And one of the kind of big x-factor moments with agent teams
+
+78
+00:07:50,799 --> 00:07:55,200
+is that these different, I was about to say sub-agents but that might confuse you,
+
+79
+00:07:55,200 --> 00:08:00,000
+these different agents that make up the agent teams can communicate with each other. They don't
+
+80
+00:08:00,000 --> 00:08:05,119
+just have to go through the main Claude Code. They can also interact. You could have one agent that
+
+81
+00:08:05,119 --> 00:08:10,399
+is the tester that is giving test feedback directly to your front-end agent and your back-end agent.
+
+82
+00:08:10,399 --> 00:08:16,880
+So they all have kind of a long-running presence in your team and they are able to interact with
+
+83
+00:08:16,880 --> 00:08:21,359
+each other, challenge each other, try out different things, test different hypotheses,
+
+84
+00:08:21,359 --> 00:08:26,160
+all of those kinds of ideas. And it is experimental in Claude Code for me right
+
+85
+00:08:26,160 --> 00:08:30,799
+now. Maybe it's more mature by the time you see it. We will be experimenting with it,
+
+86
+00:08:30,799 --> 00:08:35,359
+but it's obviously a different mindset than working with sub-agents, which is
+
+87
+00:08:35,359 --> 00:08:41,119
+more concrete, more simple. Take a task, delegate it, get back the answer.
+
