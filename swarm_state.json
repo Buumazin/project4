@@ -1,0 +1,6 @@
+{
+  "swarm_state": {
+    "active_agents": ["market-agent", "strategy-agent", "execution-agent"],
+    "state": "initialized"
+  }
+}
