@@ -1,0 +1,11 @@
+{
+  "orchestrator_plan": {
+    "steps": [
+      "1. Start market simulator",
+      "2. Fetch tickers and compute signal",
+      "3. Post buy/sell via trade API",
+      "4. Record event in swarm_state"
+    ],
+    "status": "created"
+  }
+}
