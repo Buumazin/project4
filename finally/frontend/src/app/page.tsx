@@ -222,22 +222,6 @@ export default function Dashboard() {
               >
                 Sell
               </button>
-              <button
-                className={`rounded-md px-3 py-1 text-sm font-semibold ${isAutoTrading ? 'bg-yellow-400 text-black' : 'bg-blue-500 text-white'}`}
-                onClick={() => setIsAutoTrading((v) => !v)}
-              >
-                {isAutoTrading ? 'Stop Auto Agent' : 'Start Auto Agent'}
-              </button>
-            </div>
-            <div className="mt-2 text-xs text-gray-300">Agent strategy:
-              <select
-                className="ml-2 bg-gray-900 border border-gray-600 px-2 py-1 rounded-md"
-                value={agentStrategy}
-                onChange={(e) => setAgentStrategy(e.target.value as 'momentum'|'meanReversion')}
-              >
-                <option value="momentum">Momentum</option>
-                <option value="meanReversion">Mean Reversion</option>
-              </select>
             </div>
             <div className="text-xs text-green-300 mt-2">{tradeMessage}</div>
           </div>

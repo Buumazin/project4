@@ -22,7 +22,7 @@ import re
 from typing import Optional
 import httpx
 
-LLAMA_API_URL = os.getenv("LLAMA_API_URL", "http://127.0.0.1:8080/v1/completions")
+LLAMA_API_URL = os.getenv("LLAMA_API_URL", "http://127.0.0.1:8080/v1/chat/completions")
 LLAMA_MODEL = os.getenv("LLAMA_MODEL", "llama-7b")
 
 
@@ -30,21 +30,27 @@ def parse_trade_command(text: str) -> Optional[Dict[str, Any]]:
     normalized = text.lower().strip()
 
     # Vietnamese / English simplified command patterns
-    buy_match = re.search(r"\b(?:mua|buy)\b\s+([A-Za-z0-9]+)\s+(\d+)", normalized)
-    sell_match = re.search(r"\b(?:ban|bán|sell)\b\s+([A-Za-z0-9]+)\s+(\d+)", normalized)
+    # 1) mua AAPL 10, buy MSFT 5
+    buy_match = re.search(r"\b(?:mua|buy)\b\s+([a-z0-9]+)\s+(\d+)", normalized)
+    sell_match = re.search(r"\b(?:ban|bán|sell)\b\s+([a-z0-9]+)\s+(\d+)", normalized)
+
+    # 2) mua cho tôi 10 META, bán 5 TSLA
+    buy_match_qty_first = re.search(r"\b(?:mua|buy)\b.*?(\d+)\s+([a-z0-9]+)", normalized)
+    sell_match_qty_first = re.search(r"\b(?:ban|bán|sell)\b.*?(\d+)\s+([a-z0-9]+)", normalized)
 
     if buy_match:
-        return {
-            "action": "buy",
-            "ticker": buy_match.group(1).upper(),
-            "quantity": int(buy_match.group(2))
-        }
+        symbol, qty = buy_match.group(1), buy_match.group(2)
+        return {"action": "buy", "ticker": symbol.upper(), "quantity": int(qty)}
     if sell_match:
-        return {
-            "action": "sell",
-            "ticker": sell_match.group(1).upper(),
-            "quantity": int(sell_match.group(2))
-        }
+        symbol, qty = sell_match.group(1), sell_match.group(2)
+        return {"action": "sell", "ticker": symbol.upper(), "quantity": int(qty)}
+
+    if buy_match_qty_first:
+        qty, symbol = buy_match_qty_first.group(1), buy_match_qty_first.group(2)
+        return {"action": "buy", "ticker": symbol.upper(), "quantity": int(qty)}
+    if sell_match_qty_first:
+        qty, symbol = sell_match_qty_first.group(1), sell_match_qty_first.group(2)
+        return {"action": "sell", "ticker": symbol.upper(), "quantity": int(qty)}
 
     return None
 
@@ -58,29 +64,46 @@ async def query_llama(text: str) -> str:
         f"User: {text}\nAssistant:"
     )
 
+    precise_prompt = (
+        "Bạn là trợ lý giao dịch chứng khoán. \n"
+        "Người dùng có thể hỏi bằng tiếng Việt hoặc tiếng Anh. \n"
+        "Nếu người dùng yêu cầu giao dịch, trả lời CHÍNH XÁC với định dạng: 'mua SYMBOL QTY' hoặc 'bán SYMBOL QTY'. \n"
+        "Trả lời ngắn gọn, không thêm văn bản thừa. Nếu không có ý định giao dịch, trả lời 'không giao dịch'.\n"
+        f"Người dùng: {text}\nTrợ lý:"
+    )
+
     try:
-        async with httpx.AsyncClient(timeout=20.0) as client:
+        async with httpx.AsyncClient(timeout=60.0) as client:
             payload = {
                 "model": LLAMA_MODEL,
-                "prompt": prompt,
-                "max_tokens": 128,
-                "temperature": 0.2,
+                "messages": [{"role": "user", "content": precise_prompt}],
+                "max_tokens": 64,
+                "temperature": 0.1,
                 "top_p": 0.95,
                 "stop": ["\n"]
             }
+            print(f"🔗 [DEBUG] Calling Llama API: {LLAMA_API_URL}")
+            print(f"📝 [DEBUG] Prompt: {precise_prompt}")
+            
             resp = await client.post(LLAMA_API_URL, json=payload)
             resp.raise_for_status()
             result = resp.json()
+            
+            print(f"📥 [DEBUG] Raw response from Llama: {result}")
 
-            # Should support API returns with text in result.choice / result.choices
+            # Should support API returns with text in result.choices[0].message.content
             if "choices" in result and len(result["choices"]) > 0:
-                return result["choices"][0].get("text", "").strip()
-            if "choice" in result and isinstance(result["choice"], dict):
-                return result["choice"].get("text", "").strip()
+                choice = result["choices"][0]
+                if "message" in choice and "content" in choice["message"]:
+                    text_output = choice["message"]["content"].strip()
+                    print(f"✅ [DEBUG] Extracted from 'choices[0].message.content': '{text_output}'")
+                    return text_output
+
+            print(f"⚠️ [DEBUG] API response doesn't have 'choices', 'choice', or 'content' field")
 
     except Exception as e:
         # Fallback to local rule-based parsing if llama API unavailable
-        print(f"LLAMA API query failed: {e}")
+        print(f"❌ [ERROR] LLAMA API query failed: {type(e).__name__}: {e}")
 
     return ""
 
@@ -92,7 +115,9 @@ async def chat(message_req: ChatRequest, db=Depends(get_db_session)) -> Dict[str
     db.commit()
 
     # Try to call llama.cpp local API for better parsing and response
+    print(f"🤖 [DEBUG] User message: {message_req.message}")
     llm_response_text = await query_llama(message_req.message)
+    print(f"🤖 [DEBUG] Llama response: {llm_response_text}")
 
     # Use fallback response when llama did not produce text
     if not llm_response_text:
@@ -102,6 +127,8 @@ async def chat(message_req: ChatRequest, db=Depends(get_db_session)) -> Dict[str
     trade_cmd = parse_trade_command(message_req.message)
     if not trade_cmd:
         trade_cmd = parse_trade_command(llm_response_text)
+
+    print(f"📊 [DEBUG] Parse result: {trade_cmd}")
 
     trade_result = None
     if trade_cmd:
@@ -114,14 +141,17 @@ async def chat(message_req: ChatRequest, db=Depends(get_db_session)) -> Dict[str
 
         try:
             if trade_cmd["action"] == "buy":
+                print(f"✅ [DEBUG] Executing BUY: {trade_cmd['ticker']} x {trade_cmd['quantity']}")
                 trade_result = await buy_stock(trade_req, db)
             else:
+                print(f"✅ [DEBUG] Executing SELL: {trade_cmd['ticker']} x {trade_cmd['quantity']}")
                 trade_result = await sell_stock(trade_req, db)
 
-            llm_response_text += f"\n✅ Đã thực hiện lệnh {trade_cmd['action']} {trade_cmd['ticker']} {trade_cmd['quantity']}"  # noqa: E501
+            # Use clean response for trades
+            llm_response_text = f"✅ Đã thực hiện lệnh {trade_cmd['action']} {trade_cmd['ticker']} {trade_cmd['quantity']}"
 
         except Exception as e:
-            llm_response_text += f"\n⚠️ Lỗi khi thực hiện lệnh: {str(e)}"
+            llm_response_text = f"⚠️ Lỗi khi thực hiện lệnh: {str(e)}"
 
     assistant_msg = ChatMessage(user_id="default", role="assistant", content=llm_response_text)
     db.add(assistant_msg)
